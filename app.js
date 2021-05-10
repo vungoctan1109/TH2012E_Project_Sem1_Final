@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 1000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const db = mongoose.connection;
@@ -31,10 +31,6 @@ db.once("open", function () {
 
 const Cat = mongoose.model("Cat", { name: String });
 console.log("Connection!");
-
-
-
-
 
 
 
