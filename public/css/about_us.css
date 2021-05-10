@@ -11,7 +11,7 @@ body{
   min-height: 100vh;
   background-color: rgb(43, 43, 43);
 }
-img {
+/img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -79,7 +79,7 @@ h3 {
 .box-team .card:hover{
   transform: translateX(50%)
 }
-.box-team .card .imgBox 
+.box-team .card ./imgBox
 {
   position: relative;
   width: 100%;
@@ -92,11 +92,11 @@ h3 {
   box-shadow: 10px 20px 40px rgba(0,0,0,0.25);
 
 }
-.box-team .card:hover .imgBox
+.box-team .card:hover ./imgBox
 {
   transform: rotateY(-180deg);
 }
-.box-team .card .imgBox img {
+.box-team .card ./imgBox /img {
   position: absolute;
   top: 0;
   left: 0;
@@ -106,7 +106,7 @@ h3 {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
-.box-team .card .imgBox img:nth-child(2) {
+.box-team .card ./imgBox /img:nth-child(2) {
    transform: rotateY(180deg);
 }
 .box-team .card .details
@@ -290,7 +290,7 @@ h3 {
     opacity: 1;
     transform: translateY(-20px);
 }
-.containerOutTeam .card .content .imgBx {
+.containerOutTeam .card .content ./imgBx {
     position: relative;
     width: 150px;
     height: 150px;
@@ -298,7 +298,7 @@ h3 {
     overflow: hidden;
     border: 10px solid rgba(0, 0, 0, 0.25);
 }
-.containerOutTeam .card .content .imgBx img {
+.containerOutTeam .card .content ./imgBx /img {
     position: absolute;
     top: 0px;
     left: 0;
