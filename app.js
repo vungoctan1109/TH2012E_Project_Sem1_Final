@@ -28,7 +28,6 @@ db.once("open", function () {
   
 });
 
-
 const Cat = mongoose.model("Cat", { name: String });
 console.log("Connection!");
 
