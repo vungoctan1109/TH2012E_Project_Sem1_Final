@@ -231,17 +231,6 @@ h3 {
     align-items: center;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
 /* // */
 .box-outteam
 {
@@ -357,4 +346,53 @@ h3 {
     text-align: center;
     align-items: center;
     padding: 10px;
+}
+
+.ourWorkItem{
+    min-height: 90px;
+}
+
+/*----------------ourTeam--------------*/
+section body {
+    background-color: #4A148C
+}
+
+section .card {
+    position: relative;
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #d2d2dc;
+    border-radius: 11px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+    box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+}
+
+section .card .card-body {
+    padding: 1rem 1rem
+}
+
+section .card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+section .logo {
+    height: 67px;
+
+}
+
+section .items {
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 20px
+}
+
+section .slick-slide {
+    margin: 10px
 }
