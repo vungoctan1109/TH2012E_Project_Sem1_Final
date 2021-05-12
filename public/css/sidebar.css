@@ -17,7 +17,7 @@ header {
   z-index: 1000;
   padding: 10px;
   background-color: #333;
-  background-image: url(/img/home/footerimg.png);
+  background-image: url(/img/home/footer/img.png);
 }
 
 header .container {
