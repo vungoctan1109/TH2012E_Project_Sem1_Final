@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Header-->
+<%-include('../partial/header')%>
+<!--Header-->
+<body>
+<div class="wrapper">
+    <!--left-menu-->
+    <%-include('../partial/left-menu')%>
+    <!--left-menu-->
+    <div class="main">
+
+        <!--Navbar-->
+        <%-include('../partial/nav-bar')%>
+        <!--Navbar-->
+        <main class="content">
+            <div class="container-fluid p-0">
+                <h1 class="h3 mb-3">Chỉnh sửa</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/admin/gallery/edit?id=<%=item._id%>" method="post">
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label" for="inputEmail4">Name</label>
+                                            <input type="text" value="<%= item.name%>" class="form-control"  placeholder="Nhập tên bài viết" name="name">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-3">
+                                            <label class="form-label" for="inputEmail4">Description of the photo</label>
+                                            <textarea class="form-control" value="<%= item.description%>" name="description" placeholder="Textarea" rows="1" style="margin-top: 0px; margin-bottom: 0px; height: 114px;"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-10">
+                                            <label class="form-label" for="inputEmail4">Post photo</label>
+                                            <input type="text" value="<%= item.thumbnail%>" class="form-control"  placeholder="Nhập link ảnh" name="thumbnail">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-4">
+                                            <label class="form-label" for="inputEmail4">Author</label>
+                                            <input type="text" value="<%= item.author%>" class="form-control"  placeholder="Nhập tên tác giả" name="author">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-info">Save</button>
+                                        <button type="submit" class="btn btn-default float-right">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!--footer-->
+        <%-include('../partial/footer')%>
+        <!--footer-->
+    </div>
+</div>
+<%-include('../partial/js.ejs')%>
+</body>
+
+</html>

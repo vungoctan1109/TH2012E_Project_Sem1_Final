@@ -11,6 +11,28 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+ul {
+  list-style: none;
+}
+p {
+  color: #fff;
+  line-height: 2.7;
+  letter-spacing: 0.25em;
+  font-size: 12.6px;
+  text-align: center;
+  font-weight: 400;
+}
+h3 {
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  font-size: 25.6px;
+  text-align: center;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 26.4px;
+}
 footer
 {
     padding: 0;
@@ -23,7 +45,24 @@ footer
     background-repeat: no-repeat;
     z-index: 1;
 }
-
+footer p {
+  color: #fff;
+  line-height: 2.7;
+  letter-spacing: 0.25em;
+  font-size: 12.6px;
+  text-align: center;
+  font-weight: 400;
+}
+footer h3 {
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  font-size: 25.6px;
+  text-align: center;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 26.4px;
+}
 .footer-top {
     padding-top: 60px;
     background: #333;
