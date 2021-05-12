@@ -30,8 +30,6 @@ app.use(flash({ sessionKeyName: 'flashMessage' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/admin/categories', categoryRoute);
-app.use('/admin/gallery', galleryRoute);
 
 app.use ((req, res, next) => {
     res.locals.url = req.originalUrl;
@@ -41,6 +39,7 @@ app.use ((req, res, next) => {
 });
 
 app.use('/admin/categories', categoryRoute);
+app.use('/admin/gallery', galleryRoute);
 //mongoose
 // login connection into mongodb
 mongoose.connect(
@@ -50,14 +49,11 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+
 // notified connection mongodb!
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
 })
-const Cat = mongoose.model("Cat", { name: String });
-console.log("Connection!");
-
-
 
 //home
 app.get('/user/page/home',(req, res) => {
