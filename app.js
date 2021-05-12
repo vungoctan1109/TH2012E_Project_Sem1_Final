@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 1000;
+const port = 3000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require('express-session');
@@ -29,10 +29,18 @@ app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
 
+app.use ((req, res, next) => {
+    res.locals.url = req.originalUrl;
+    res.locals.host = req.get('host');
+    res.locals.protocol = req.protocol;
+    next();
+});
 
+app.use('/admin/categories', categoryRoute);
 //mongoose
 // login connection into mongodb
 mongoose.connect(
