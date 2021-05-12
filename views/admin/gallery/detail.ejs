@@ -25,31 +25,31 @@
                                 <form action="/admin/gallery/create" method="post">
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputEmail4"><h4>Tên bài viết</h4></label>
+                                            <label class="form-label" for="inputEmail4"><h4>Name</h4></label>
                                             <p><%=item.name%></p>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="mb-3 col-md-3">
-                                            <label class="form-label" for="inputEmail4"><h4>Nội dung bài viết</h4></label>
+                                            <label class="form-label" for="inputEmail4"><h4>photo description</h4></label>
                                             <p><%=item.description%></p>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="mb-3 col-md-10">
-                                            <label class="form-label" for="inputEmail4"><h4>Hình ảnh</h4></label>
+                                            <label class="form-label" for="inputEmail4"><h4>Picture</h4></label>
                                             <div><img src="<%=item.thumbnail%>" style="width: 300px" alt=""></div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label" for="inputEmail4"><h4>Tác giả</h4></label>
-                                            <p><%=item.author%></p>
-                                        </div>
-                                    </div>
+<!--                                    <div class="row">-->
+<!--                                        <div class="mb-3 col-md-4">-->
+<!--                                            <label class="form-label" for="inputEmail4"><h4>Tác giả</h4></label>-->
+<!--                                            <p><%=item.author%></p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <div class="card-footer">
                                         <a href="/admin/gallery/edit?id=<%=item._id%>"><button type="button" class="btn btn-primary">Edit</button></a>
                                         <a href="/admin/gallery/delete?id=<%=item._id%>"><button type="button" class="btn btn-danger">Delete</button></a>

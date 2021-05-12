@@ -15,6 +15,15 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+                            <%
+                            if (list == null || list.length == 0){
+                            %>
+                            <div class="card-header">
+                                <h3 class="card-title">There are currently no photos, please <a href="/admin/gallery/create">click here</a>to add new.</h3>
+                            </div>
+                            <%
+                            }else{
+                            %>
                             <div class="card-header">
                                 <h3 class="card-title">All photos</h3>
                             </div>
@@ -63,6 +72,9 @@
                                     </tfoot>
                                 </table>
                             </div>
+                                <%
+                            }
+                                %>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->

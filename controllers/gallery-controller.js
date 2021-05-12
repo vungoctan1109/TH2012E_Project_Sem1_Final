@@ -73,7 +73,7 @@ exports.postCreate = function (req, resp){
     }else {
         // lưu thành công thì hiển thị message.
         obj.save().then(async function () {
-            await req.flash('message', 'Tạo mới thành công!');
+            await req.flash('message', 'New successfully created!');
             resp.redirect('/admin/gallery'); // chuyển hướng người dùng về trang danh sách.
         })
     }
