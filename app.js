@@ -43,7 +43,10 @@ mongoose.connect(
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
 });
-
+//NVQpart
+//ket noi route article-NVQ
+const articleRoute = require('./routes/article-rowte')
+app.use('/admin/article', articleRoute);
 
 ////////////////////////////////
 
@@ -68,7 +71,7 @@ app.get("/user/page/about", (req, res) => {
 app.get("/user/page/blog_detail", (req, res) => {
   res.render("user/page/blog_detail.ejs");
 });
-
+//----------------------------------------------------------------------------------
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
