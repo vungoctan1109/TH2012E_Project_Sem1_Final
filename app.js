@@ -70,3 +70,8 @@ app.get("/user/page/gallery", (req, res) => {
 app.get("/user/page/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
+// --------------------------
+//Create aticle
+app.get('/admin/article/create',function (req,res){
+  res.render('admin/article/form');
+})
