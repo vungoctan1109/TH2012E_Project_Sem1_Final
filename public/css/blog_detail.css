@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h3 {
+    color: #fff;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+    font-size: 25.6px;
+    text-align: center;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 26.4px;
+}
+p {
+    color: #fff;
+    line-height: 2.7;
+    letter-spacing: 0.25em;
+    font-size: 12.6px;
+    font-weight: 400;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    text-decoration: none;
+}
