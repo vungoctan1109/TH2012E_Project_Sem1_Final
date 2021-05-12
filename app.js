@@ -29,9 +29,16 @@ app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
 
+app.use ((req, res, next) => {
+    res.locals.url = req.originalUrl;
+    res.locals.host = req.get('host');
+    res.locals.protocol = req.protocol;
+    next();
+});
 
 //mongoose
 // login connection into mongodb
