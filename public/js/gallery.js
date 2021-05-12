@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var	$parent = $("#main"),
     $aside = $("#aside"),
     $asideTarget = $aside.find(".aside--details"),
@@ -86,9 +85,7 @@ $(".close").on("click", (e) => {
     $(this).attr("aria-expanded", "false");
 });
 
-=======
 $(window).on("load", function (event) {
   $("body").removeClass("preloading");
   $(".loaderbox").delay(1000).fadeOut("slow");
 });
->>>>>>> f323b372048076a8ea74464c2d10d134f0f532b5
