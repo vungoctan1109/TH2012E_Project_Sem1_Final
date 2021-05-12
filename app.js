@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 1000;
+const port = 3000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require('express-session');
@@ -40,6 +40,7 @@ app.use ((req, res, next) => {
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
 
+
 //mongoose
 // login connection into mongodb
 mongoose.connect(
@@ -49,10 +50,12 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+
 // notified connection mongodb!
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
 })
+
 const Cat = mongoose.model("Cat", { name: String });
 console.log("Connection!");
 
