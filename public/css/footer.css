@@ -15,24 +15,7 @@ a:hover {
 ul {
   list-style: none;
 }
-p {
-  color: #fff;
-  line-height: 2.7;
-  letter-spacing: 0.25em;
-  font-size: 12.6px;
-  text-align: center;
-  font-weight: 400;
-}
-h3 {
-  color: #fff;
-  line-height: 1.4;
-  letter-spacing: -0.025em;
-  font-size: 25.6px;
-  text-align: center;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 26.4px;
-}
+
 footer
 {
     padding: 0;
@@ -61,7 +44,6 @@ footer h3 {
   text-align: center;
   font-weight: 600;
   font-style: normal;
-  font-size: 26.4px;
 }
 .footer-top {
     padding-top: 60px;
@@ -88,7 +70,7 @@ footer h3 {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    background-image: url(/img/home/footerimg.png);
+    background-image: url(/img/home/footer/img.png);
 }
 .footer-about p a {
     color: #aaa;
@@ -98,6 +80,14 @@ footer h3 {
     color: #aaa;
     border-bottom: 1px dashed #666;
 }
+footer .container {
+    max-width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+
 .list-contact
 {
     position: relative;

@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.html">
-            <span class="align-middle">Calligraphy Addmin</span>
+            <span class="align-middle">Calligraphy Admin</span>
         </a>
         <ul class="sidebar-nav">
             <li class="sidebar-header">
@@ -12,18 +12,33 @@
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item active">
-                <a data-target="#forms" data-toggle="collapse" class="sidebar-link">
-                    <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
+            <li class="sidebar-item">
+                <a data-target="#forms_1" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage Category</span>
                 </a>
-                <ul id="forms" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
-                    <li class="sidebar-item active"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a>
-                    </li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a>
-                    </li>
+                <ul id="forms_1" class="sidebar-dropdown list-unstyled <%=url.includes('/admin/categories') ? ' ' : ' collapse'%>" data-parent="#sidebar" >
+                    <li class="sidebar-item <%=(url =='/admin/categories') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/categories">List Category</a></li>
+                    <li class="sidebar-item <%=(url =='/admin/categories/create') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/categories/create">Create New Category</a></li>
                 </ul>
             </li>
-
+            <li class="sidebar-item">
+                <a data-target="#forms_2" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Manage Article</span>
+                </a>
+                <ul id="forms_2" class="sidebar-dropdown list-unstyled" data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="">List Article</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="">Create New Article</a></li>
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a data-target="#forms_3" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="image"></i> <span class="align-middle">Manage Gallery</span>
+                </a>
+                <ul id="forms_3" class="sidebar-dropdown list-unstyled" data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="">List Photo</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="">Add New Photo</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>

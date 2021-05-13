@@ -15672,7 +15672,7 @@
         monthsShort: "Jan_Fra_Mar_Apr_Mej_Ġun_Lul_Aww_Set_Ott_Nov_Diċ".split(
           "_"
         ),
-        weekdays: "Il-Ħadd_It-Tnejn_It-Tlieta_L-Erbgħa_Il-Ħamis_Il-Ġimgħa_Is-Sibt".split(
+        weekdays: "Il-Ħadd_It-Tnejn_It-Tlieta_L-Erbgħa_Il-Ħamis_Il-Ġ/imgħa_Is-Sibt".split(
           "_"
         ),
         weekdaysShort: "Ħad_Tne_Tli_Erb_Ħam_Ġim_Sib".split("_"),
@@ -23699,8 +23699,8 @@
           darkviolet: [148, 0, 211],
           deeppink: [255, 20, 147],
           deepskyblue: [0, 191, 255],
-          dimgray: [105, 105, 105],
-          dimgrey: [105, 105, 105],
+          d/imgray: [105, 105, 105],
+          d/imgrey: [105, 105, 105],
           dodgerblue: [30, 144, 255],
           firebrick: [178, 34, 34],
           floralwhite: [255, 250, 240],
@@ -24593,8 +24593,8 @@
           darkviolet: [148, 0, 211],
           deeppink: [255, 20, 147],
           deepskyblue: [0, 191, 255],
-          dimgray: [105, 105, 105],
-          dimgrey: [105, 105, 105],
+          d/imgray: [105, 105, 105],
+          d/imgrey: [105, 105, 105],
           dodgerblue: [30, 144, 255],
           firebrick: [178, 34, 34],
           floralwhite: [255, 250, 240],
@@ -38887,7 +38887,7 @@
                       return e.cycle(t);
                     }, 500 + e._config.interval)));
               };
-            de.find(".carousel-item img", this._element).forEach(function (e) {
+            de.find(".carousel-item /img", this._element).forEach(function (e) {
               X.on(e, "dragstart.bs.carousel", function (e) {
                 return e.preventDefault();
               });
@@ -40123,7 +40123,7 @@
         h5: [],
         h6: [],
         i: [],
-        img: ["src", "srcset", "alt", "title", "width", "height"],
+        /img: ["src", "srcset", "alt", "title", "width", "height"],
         li: [],
         ol: [],
         p: [],
