@@ -22,25 +22,24 @@
                             <div class="card-body">
                                 <form action="/admin/gallery/edit?id=<%=item._id%>" method="post">
                                     <div class="row">
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-5">
                                             <label class="form-label" for="inputEmail4">Name</label>
                                             <input type="text" value="<%= item.name%>" class="form-control"  placeholder="" name="name">
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="mb-3 col-md-3">
-                                            <label class="form-label" for="inputEmail4">Description of the photo</label>
-                                            <textarea class="form-control" value="<%= item.description%>" name="description" placeholder="Textarea" rows="1" style="margin-top: 0px; margin-bottom: 0px; height: 114px;"></textarea>
+                                        <div class="mb-3 col-md-5">
+                                            <label class="form-label" for="inputEmail4">Description</label>
+                                            <textarea class="form-control" value="<%= item.description%>" name="description" placeholder="Textarea" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 114px;"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="mb-3 col-md-10">
-                                            <label class="form-label" for="inputEmail4">Post photo</label>
                                             <input type="hidden" value="<%= item.thumbnail%>" class="form-control"  placeholder="" name="thumbnail">
                                             <img src="#" style="width: 150px; display: none" id="preview-img" class="img-thumbnail img-bordered" alt="">
-                                            <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+                                            <button type="button" id="upload_widget" class="btn btn-primary">Post photo</button>
                                         </div>
                                     </div>
 
@@ -50,9 +49,11 @@
 <!--                                            <input type="text" value="<%= item.author%>" class="form-control"  placeholder="Nhập tên tác giả" name="author">-->
 <!--                                        </div>-->
 <!--                                    </div>-->
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-info">Save</button>
-                                        <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-5">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

@@ -16,7 +16,7 @@
     <!--Navbar-->
         <main class="content">
             <div class="container-fluid p-0">
-                <h1 class="h3 mb-3">Form</h1>
+                <h1 class="h3 mb-3">Add New Photo</h1>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -24,16 +24,16 @@
                                 <form action="/admin/gallery/create" name="productForm" method="post">
 
                                     <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputEmail4">Name of the article</label>
+                                        <div class="mb-3 col-md-5">
+                                            <label class="form-label" for="inputEmail4">Title</label>
                                             <input type="text" class="form-control"  placeholder="" name="name" value="<%= typeof item !== "undefined" ? item.name : ''%>">
                                             <span class="text-danger"><%= typeof errors !== "undefined" && errors.name ? errors.name.message : ''%></span>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="mb-3 col-md-3">
-                                            <label class="form-label" for="inputEmail4">Content</label>
+                                        <div class="mb-3 col-md-5">
+                                            <label class="form-label" for="inputEmail4">Description</label>
                                             <textarea class="form-control" name="description" placeholder="Textarea" rows="1" style="margin-top: 0px; margin-bottom: 0px; height: 114px;"><%= typeof item !== "undefined" ? item.description : ''%></textarea>
                                             <span class="text-danger"><%= typeof errors !== "undefined" && errors.description ? errors.description.message : ''%></span>
                                         </div>
@@ -41,10 +41,9 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-10">
-                                            <label class="form-label" for="inputEmail4">Post photo</label>
                                             <input type="hidden" class="form-control"  placeholder="" name="thumbnail">
                                             <img src="#" style="width: 150px; display: none" id="preview-img" class="img-thumbnail img-bordered" alt="">
-                                            <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+                                            <button type="button" id="upload_widget" class="btn btn-primary">Post photo</button>
                                         </div>
                                     </div>
 
@@ -54,8 +53,12 @@
 <!--                                            <input type="text" class="form-control"  placeholder="Nhập tên tác giả" name="author">-->
 <!--                                        </div>-->
 <!--                                    </div>-->
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                    <button type="reset" class="btn btn-danger float-right">Cancel</button>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="reset" class="btn btn-danger float-right">Cancel</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
