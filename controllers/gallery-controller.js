@@ -1,11 +1,13 @@
 const Gallery = require('../models/gallery.js');
+const Category = require('../models/category.js');
+const mongoose = require('mongoose');
 
 exports.getlist = function (req,res) {
     Gallery.find().then( async function (data) {
         //render view kèm theo dữ liệu
         res.render('admin/gallery/list', {
             list: data,
-            message: await req.consumeFlash('message') // lấy message từ trong flash
+            message: await req.consumeFlash('message'),// lấy message từ trong flash
         });
     });
 }
