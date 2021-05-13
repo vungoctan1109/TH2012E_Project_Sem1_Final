@@ -19,11 +19,19 @@
                                         <label class="form-label">Article Title</label>
                                         <input type="text" class="form-control w-25" placeholder="Title" name="name" value="<%=item.name%>">
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Type of calligraphy</label>
-                                        <input type="text" class="form-control w-25" placeholder="Title" name="category" value="<%=item.category%>">
+                                    <div class="col-md-4">
+                                        <label for="inputEmail4">Type Of Calligraphy</label>
+                                        <!--                                            danh muc san pham duoc lay ra tu bang categories-->
+                                        <select name="categoryId" id="categorySelect" class="form-control">
+                                            <option value="">---ALL---</option>
+                                            <% for(var i = 0; i < cate.length; i++) {
+                                            %>
+                                                <option value="<%= cate[i]._id %>" <%= currentCategoryID == cate[i]._id ? 'selected':'' %>><%= cate[i].name %></option>
+                                            <%
+                                            } %>
+                                        </select>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mt-4">
                                         <label class="form-label">Content of the article</label>
                                         <textarea style="min-height: 400px" class="form-control" placeholder="Enter..." rows="3" name="articleDetail"
                                                   spellcheck="false" ><%-item.articleDetail%></textarea>
