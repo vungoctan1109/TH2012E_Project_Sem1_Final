@@ -5,30 +5,28 @@ const mongoose = require('mongoose');
 
 //lay thong tin tat cac bai viet
 exports.getList = function (req, res) {
+    var keyword = req.query.keyword;
     var categoryId = req.query.categoryId;
     var fillterObject = {};
-
     //fillter theo categoryID
     if (typeof categoryId !== "undefined" && categoryId.length > 0) {
         fillterObject["category"] = mongoose.Types.ObjectId(categoryId);
     }
-    article.find().then(function (data) {
-        category.find().then(function (cate){
-            res.render('admin/article/list', {
-                list1: data,
-                cate:cate
-            })
-        })
+    //fillter theo keyword
+    if (typeof  keyword !== "undefined" && keyword.length > 0){
+        fillterObject["$text"]={
+            $search: keyword
+        }
+    }
 
+    article.find(fillterObject).populate('category').exec(async function (err,data){
+        var cate = await category.find();
+        res.render('admin/article/list',{
+            list1:data,
+            cate:cate,
+            currentCategoryID:categoryId
+        })
     })
-    // article.find(fillterObject).populate('category', 'name').exec(async function (err,data){
-    //     var cate = await article.find();
-    //     res.render('admin/article/list',{
-    //         list1:data,
-    //         cate:cate,
-    //         currentArticle:categoryId
-    //     })
-    // })
 }
 //them moi bai viet
 exports.create = function (req, res) {

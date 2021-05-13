@@ -1,5 +1,12 @@
 <!-- header -->
 <%- include('../partial/header.ejs') %>
+<head>
+    <style>
+        tr {
+
+        }
+    </style>
+</head>
 <body>
 <div class="wrapper">
     <!-- sidebar -->
@@ -9,17 +16,19 @@
         <%- include('../partial/nav-bar.ejs') %>
         <main class="content">
             <div class="container-fluid p-0">
+                <h1 class="section-title">LIST OF ARTILES</h1>
                 <form action="/admin/article" method="get" name="seachForm">
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <label class="mb-2" for="inputEmail4">Categories</label>
                             <!--                                            danh muc san pham duoc lay ra tu bang categories-->
                             <select name="categoryId" id="categorySelect" class="form-control">
+                                <option value="">---ALL---</option>
                                 <% for(var i = 0; i < cate.length; i++) {
                                 %>
-                                    <option value="<%=cate[i]._id%>"><%=cate[i].name%></option>
+                                    <option value="<%= cate[i]._id %>" <%= currentCategoryID == cate[i]._id ? 'selected':'' %>><%= cate[i].name %></option>
                                 <%
-                                }%>
+                                } %>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -40,8 +49,8 @@
                             <th style="width: 20%" class="text-center">Title</th>
                             <th style="width: 10%" class="text-center">Calligraphy Genre</th>
                             <th style="width: 40%" class="text-center">Article Details</th>
-                            <th style="width: 17%" class="text-center">Create At</th>
-                            <th style="width: 10%" class="text-center">Action</th>
+                            <th style="width: 14%" class="text-center">Create At</th>
+                            <th style="width: 13%" class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,7 +59,7 @@
                             <tr>
                                 <td><%= i + 1 %></td>
                                 <td><%= list1[i].name %></td>
-                                <td><%= list1[i].category%></td>
+                                <td><%= list1[i].category.name %></td>
                                 <td><%= list1[i].articleDetail %></td>
                                 <td><%= list1[i].createAt %></td>
                                 <td class="table-action">
@@ -91,12 +100,13 @@
                         </tbody>
                         <tfoot>
                         <tr>
+                           
                             <th style="width: 3%" class="text-center">Number</th>
                             <th style="width: 20%" class="text-center">Title</th>
                             <th style="width: 10%" class="text-center">Calligraphy Genre</th>
                             <th style="width: 40%" class="text-center">Article Details</th>
-                            <th style="width: 17%" class="text-center">Create At</th>
-                            <th style="width: 10%" class="text-center">Action</th>
+                            <th style="width: 14%" class="text-center">Create At</th>
+                            <th style="width: 13%" class="text-center">Action</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -109,6 +119,12 @@
 </div>
 <!-- js -->
 <%- include('../partial/js.ejs') %>
+<script>
+    var categorySelect = document.forms['seachForm']['categoryId'];
+    categorySelect.onchange = function (){
+        document.forms['seachForm'].submit();
+    }
+</script>
 </body>
 
 </html>
