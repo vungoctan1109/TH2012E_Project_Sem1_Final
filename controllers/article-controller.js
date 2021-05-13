@@ -22,6 +22,7 @@ exports.getList = function (req, res) {
     article.find(fillterObject).populate('category').exec(async function (err,data){
         var cate = await category.find();
         res.render('admin/article/list',{
+            message: await req.consumeFlash('message'),
             list1:data,
             cate:cate,
             currentCategoryID:categoryId
@@ -39,17 +40,32 @@ exports.create = function (req, res) {
 
 exports.store = function (req, res) {
     const newArticle = new article(req.body);
+    //tu dong fill gia tri date cho thoi diem req, truoc khi save and then
+    newArticle.category = Date.now();
     newArticle.category = mongoose.Types.ObjectId(req.body.categoryID)
-    newArticle.save().then(function () {
-        res.redirect('/admin/article')
-    })
+    //tra ve thong tin loi
+    const error = newArticle.validateSync();
+    if (error && error.errors){
+        category.find().then(function (cateList){
+            res.render('admin/article/form',{
+                item:newArticle,
+                errors: error.errors,
+                cateList:cateList
+            })
+        })
+    }else {
+        newArticle.save().then(async function () {
+            await req.flash('message', 'Your article creation is complete!');
+            res.redirect('/admin/article')
+        })
+    }
 }
 //xoa bai viet
 exports.delete = function (req, res) {
-    article.findById(req.query.id).then(function (data) {
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
         res.render('admin/article/delete', {
-            item: data
-        })
+            item: data,
+        });
     })
 }
 
@@ -60,11 +76,15 @@ exports.doDelete = function (req, res) {
 }
 //sua bai viet
 exports.edit = function (req, res) {
-    article.findById(req.query.id).then(function (data) {
+    var categoryId1 = req.query.categoryId;
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
+        var cate = await category.find();
         res.render('admin/article/edit', {
-            item: data
+            item: data,
+            cate:cate,
+            currentCategoryID:categoryId1
         });
-    });
+    })
 }
 
 exports.update = function (req, res) {
@@ -74,9 +94,9 @@ exports.update = function (req, res) {
 }
 //lay thong tin chi tiet bai viet
 exports.getDetail = function (req, res) {
-    article.findById(req.query.id).then(function (data) {
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
         res.render('admin/article/detail', {
             item: data
         });
-    });
+    })
 }

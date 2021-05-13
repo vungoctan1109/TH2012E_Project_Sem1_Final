@@ -7,17 +7,17 @@ const articleSchema = new mongoose.Schema(
             trim: true
         },
         category: {
-            required:[true, 'Please enter your article categories.'],
+            required:[true, 'Please select your article categories.'],
             type: mongoose.Schema.Types.ObjectId,
             ref:'categories'
         },
         articleDetail: {
             type: String,
-            trim: [true, 'Please enter your article content.']
+            trim: [true, 'Please enter your article content.'],
+            required:[true, 'Article detail can not be blank.']
         },
         createAt:{
-            type:Date,
-            trim:[true, 'Please enter your posting time.']
+            type:Date, default:Date.now
         }
     }
 )
