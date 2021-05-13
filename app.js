@@ -9,6 +9,7 @@ const { flash } = require('express-flash-message');
 const db = mongoose.connection;
 const categoryRoute = require('./routes/category_route');
 const galleryRoute = require('./routes/gallery-router');
+const articleRoute = require('./routes/article-rowte');
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));
@@ -39,7 +40,7 @@ app.use ((req, res, next) => {
 
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
-
+app.use('/admin/article', articleRoute);
 
 //mongoose
 // login connection into mongodb
@@ -54,10 +55,8 @@ mongoose.connect(
 // notified connection mongodb!
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
-})
+});
 
-const Cat = mongoose.model("Cat", { name: String });
-console.log("Connection!");
 
 //home
 app.get('/user/page/home',(req, res) => {
@@ -75,11 +74,13 @@ app.get("/user/page/gallery", (req, res) => {
 app.get("/user/page/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
+
 //blog_detail
 app.get("/user/page/blog_detail", (req, res) => {
   res.render("user/page/blog_detail.ejs");
 });
-
+//----------------------------------------------------------------------------------
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
+
