@@ -46,10 +46,10 @@ exports.store = function (req, res) {
 }
 //xoa bai viet
 exports.delete = function (req, res) {
-    article.findById(req.query.id).then(function (data) {
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
         res.render('admin/article/delete', {
-            item: data
-        })
+            item: data,
+        });
     })
 }
 
@@ -60,11 +60,15 @@ exports.doDelete = function (req, res) {
 }
 //sua bai viet
 exports.edit = function (req, res) {
-    article.findById(req.query.id).then(function (data) {
+    var categoryId1 = req.query.categoryId;
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
+        var cate = await category.find();
         res.render('admin/article/edit', {
-            item: data
+            item: data,
+            cate:cate,
+            currentCategoryID:categoryId1
         });
-    });
+    })
 }
 
 exports.update = function (req, res) {
@@ -74,9 +78,9 @@ exports.update = function (req, res) {
 }
 //lay thong tin chi tiet bai viet
 exports.getDetail = function (req, res) {
-    article.findById(req.query.id).then(function (data) {
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
         res.render('admin/article/detail', {
             item: data
         });
-    });
+    })
 }
