@@ -58,12 +58,18 @@
                                         <td><%=list[i].name%></td>
                                         <td><%=list[i].description%></td>
                                         <td class="table-action">
-                                            <a href="/admin/categories/edit?id=<%=list[i]._id%>"><i class="align-middle" data-feather="edit-2"></i></a>
-                                            <a href="/admin/categories/delete?id=<%=list[i]._id%>"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a href="/admin/categories/edit?id=<%=list[i]._id%>" title="edit category"><i class="align-middle" data-feather="edit-2"></i></a>
+                                            <a href="/admin/categories/delete?id=<%=list[i]._id%>" title="delete category"><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                 <%
                                 }%>
+                                <tr>
+                                    <th style="width:10%;">Number</th>
+                                    <th style="width:30%;">Name</th>
+                                    <th style="width:40%">Description</th>
+                                    <th>Actions</th>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

@@ -20,27 +20,29 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="/admin/gallery/edit?id=<%=item._id%>" method="post">
+                                <form action="/admin/gallery/edit?id=<%=item._id%>" name="galleryForm" method="post">
                                     <div class="row">
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-5">
                                             <label class="form-label" for="inputEmail4">Name</label>
-                                            <input type="text" value="<%= item.name%>" class="form-control"  placeholder="" name="name">
+                                            <input type="text" value="<%= item.name%>" class="form-control"  name="name">
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="mb-3 col-md-3">
-                                            <label class="form-label" for="inputEmail4">Description of the photo</label>
-                                            <textarea class="form-control" value="<%= item.description%>" name="description" placeholder="Textarea" rows="1" style="margin-top: 0px; margin-bottom: 0px; height: 114px;"></textarea>
+                                        <div class="mb-3 col-md-5">
+                                            <label class="form-label" for="inputEmail4">Description</label>
+                                            <textarea class="form-control" name="description"  rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 114px;"><%= item.description%>
+                                            </textarea>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="mb-3 col-md-10">
-                                            <label class="form-label" for="inputEmail4">Post photo</label>
-                                            <input type="hidden" value="<%= item.thumbnail%>" class="form-control"  placeholder="" name="thumbnail">
-                                            <img src="#" style="width: 150px; display: none" id="preview-img" class="img-thumbnail img-bordered" alt="">
-                                            <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+                                            <div id="preview-img" class="mb-3">
+                                                <img src="<%= item.thumbnail%>" style="width: 150px">
+                                            </div>
+                                            <input value="<%=item.thumbnail%>" type="hidden" class="form-control" placeholder="Nhập link ảnh" name="thumbnail">
+                                            <button type="button" id="upload_widget" class="btn btn-info mt-2">Upload files</button>
                                         </div>
                                     </div>
 
@@ -50,9 +52,11 @@
 <!--                                            <input type="text" value="<%= item.author%>" class="form-control"  placeholder="Nhập tên tác giả" name="author">-->
 <!--                                        </div>-->
 <!--                                    </div>-->
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-info">Save</button>
-                                        <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-5">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -73,15 +77,22 @@
 <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+    var firstTime = true;
     var myWidget = cloudinary.createUploadWidget({
             cloudName: 'dxvv37gf5',
-            uploadPreset: 'vqholzvg'}, (error, result) => {
+            uploadPreset: 'vqholzvg'},
+        (error, result) => {
             if (!error && result && result.event === "success") {
                 console.log('Done! Here is the image info: ', result.info.secure_url);
-                document.forms['productForm']['thumbnail'].value = result.info.secure_url;
-                var imgTag = document.getElementById('preview-img');
-                imgTag.src = result.info.secure_url;
-                imgTag.style.display = 'block';
+                var previewImg = document.getElementById('preview-img');
+                if (firstTime) {
+                    document.forms['galleryForm']['thumbnail'].value = result.info.secure_url + ',';
+                    previewImg.innerHTML = `<img style="width: 150px;" src="${result.info.secure_url}" alt="" class="img-thumbnail img-bordered mr-2">`
+                    firstTime = false;
+                } else {
+                    document.forms['galleryForm']['thumbnail'].value += result.info.secure_url + ',';
+                    previewImg.innerHTML += `<img style="width: 150px;" src="${result.info.secure_url}" alt="" class="img-thumbnail img-bordered mr-2">`
+                }
             }
         }
     )

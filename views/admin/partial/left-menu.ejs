@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a data-target="#forms_1" data-toggle="collapse" class="sidebar-link collapsed">
+                <a data-target="#forms_1" data-toggle="collapse" class="sidebar-link collapsed" href="/admin/categories">
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">Manage Category</span>
                 </a>
                 <ul id="forms_1" class="sidebar-dropdown list-unstyled <%=url.includes('/admin/categories') ? ' ' : ' collapse'%>" data-parent="#sidebar" >
@@ -22,21 +22,21 @@
                 </ul>
             </li>
             <li class="sidebar-item">
-                <a data-target="#forms_2" data-toggle="collapse" class="sidebar-link collapsed">
+                <a data-target="#forms_2" data-toggle="collapse" class="sidebar-link collapsed" href="/admin/article">
                     <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Manage Article</span>
                 </a>
-                <ul id="forms_2" class="sidebar-dropdown list-unstyled" data-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="http://localhost:3000/admin/article">List Article</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="http://localhost:3000/admin/article/create">Create New Article</a></li>
+                <ul id="forms_2" class="sidebar-dropdown list-unstyled <%=url.includes('/admin/article') ? ' ' : ' collapse'%>" data-parent="#sidebar">
+                    <li class="sidebar-item <%=(url =='/admin/article') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/article">List Article</a></li>
+                    <li class="sidebar-item <%=(url =='/admin/article/create') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/article/create">Create New Article</a></li>
                 </ul>
             </li>
             <li class="sidebar-item">
-                <a data-target="#forms_3" data-toggle="collapse" class="sidebar-link collapsed">
+                <a data-target="#forms_3" data-toggle="collapse" class="sidebar-link collapsed" href="/admin/gallery">
                     <i class="align-middle" data-feather="image"></i> <span class="align-middle">Manage Gallery</span>
                 </a>
-                <ul id="forms_3" class="sidebar-dropdown list-unstyled" data-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="">List Photo</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="">Add New Photo</a></li>
+                <ul id="forms_3" class="sidebar-dropdown list-unstyled <%=url.includes('/admin/gallery') ? ' ' : ' collapse'%>" data-parent="#sidebar">
+                    <li class="sidebar-item <%=(url =='/admin/gallery') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/gallery">List Photo</a></li>
+                    <li class="sidebar-item <%=(url =='/admin/gallery/create') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/gallery/create">Add New Photo</a></li>
                 </ul>
             </li>
         </ul>

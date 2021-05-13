@@ -20,7 +20,7 @@
                 <form action="/admin/article" method="get" name="seachForm">
                     <div class="row mb-3">
                         <div class="col-md-4">
-                            <label for="inputEmail4">Danh mục</label>
+                            <label class="mb-2" for="inputEmail4">Categories</label>
                             <!--                                            danh muc san pham duoc lay ra tu bang categories-->
                             <select name="categoryId" id="categorySelect" class="form-control">
                                 <option value="">---ALL---</option>
@@ -32,7 +32,7 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="example1_filter">Search</label>
+                            <label class="mb-2" for="example1_filter">Search</label>
                             <div id="example1_filter" class="dataTables_filter"><input class="form-control"
                                                                                        type="search"
                                                                                        aria-controls="example1"
@@ -45,10 +45,10 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th style="width: 3%" class="text-center">STT</th>
-                            <th style="width: 20%" class="text-center">Tên</th>
-                            <th style="width: 10%" class="text-center">Thể Loại Thư Pháp</th>
-                            <th style="width: 40%" class="text-center">Nội Dung Chi Tiết</th>
+                            <th style="width: 3%" class="text-center">Number</th>
+                            <th style="width: 20%" class="text-center">Title</th>
+                            <th style="width: 10%" class="text-center">Calligraphy Genre</th>
+                            <th style="width: 40%" class="text-center">Article Details</th>
                             <th style="width: 14%" class="text-center">Create At</th>
                             <th style="width: 13%" class="text-center">Action</th>
                         </tr>
@@ -62,12 +62,12 @@
                                 <td><%= list1[i].category.name %></td>
                                 <td><%= list1[i].articleDetail %></td>
                                 <td><%= list1[i].createAt %></td>
-                                <td>
+                                <td class="table-action">
                                     <a href="/admin/article/detail?id=<%= list1[i]._id %>" title="view detail">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24"
                                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                             stroke-linejoin="round" class="feather feather-info align-middle mr-2">
+                                             stroke-linejoin="round" class="feather feather-info align-middle mr-2" data-feather=>
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <line x1="12" y1="16" x2="12" y2="12"></line>
                                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
@@ -100,10 +100,11 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <th style="width: 3%" class="text-center">STT</th>
-                            <th style="width: 20%" class="text-center">Tên</th>
-                            <th style="width: 10%" class="text-center">Thể Loại Thư Pháp</th>
-                            <th style="width: 40%" class="text-center">Nội Dung Chi Tiết</th>
+                           
+                            <th style="width: 3%" class="text-center">Number</th>
+                            <th style="width: 20%" class="text-center">Title</th>
+                            <th style="width: 10%" class="text-center">Calligraphy Genre</th>
+                            <th style="width: 40%" class="text-center">Article Details</th>
                             <th style="width: 14%" class="text-center">Create At</th>
                             <th style="width: 13%" class="text-center">Action</th>
                         </tr>

@@ -17,22 +17,22 @@
         <!--Navbar-->
         <main class="content">
             <div class="container-fluid p-0">
-                <h1 class="h3 mb-3">Thông tin chi tiết</h1>
+                <h1 class="h3 mb-3">Details</h1>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <form action="/admin/gallery/create" method="post">
                                     <div class="row">
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-5">
                                             <label class="form-label" for="inputEmail4"><h4>Name</h4></label>
                                             <p><%=item.name%></p>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="mb-3 col-md-3">
-                                            <label class="form-label" for="inputEmail4"><h4>Photo description</h4></label>
+                                        <div class="mb-3 col-md-5">
+                                            <label class="form-label" for="inputEmail4"><h4>Description</h4></label>
                                             <p><%=item.description%></p>
                                         </div>
                                     </div>
@@ -50,11 +50,14 @@
 <!--                                            <p><%=item.author%></p>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
-                                    <div class="card-footer">
-                                        <a href="/admin/gallery/edit?id=<%=item._id%>"><button type="button" class="btn btn-primary">Edit</button></a>
-                                        <a href="/admin/gallery/delete?id=<%=item._id%>"><button type="button" class="btn btn-danger">Delete</button></a>
-                                        <a href="/admin/gallery"><button type="button" class="btn btn-dark float-right">Back to list</button></a>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-5 mt-5">
+                                            <a href="/admin/gallery/edit?id=<%=item._id%>"><button type="button" class="btn btn-primary">Edit</button></a>
+                                            <a href="/admin/gallery/delete?id=<%=item._id%>"><button type="button" class="btn btn-danger">Delete</button></a>
+                                            <a href="/admin/gallery"><button type="button" class="btn btn-dark float-right">Back to list</button></a>
+                                        </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>

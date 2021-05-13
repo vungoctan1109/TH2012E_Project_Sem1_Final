@@ -3,13 +3,17 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const db = mongoose.connection;
+
 const session = require('express-session');
 const sessionStore = new session.MemoryStore;
 const { flash } = require('express-flash-message');
-const db = mongoose.connection;
+
+
 const categoryRoute = require('./routes/category_route');
 const galleryRoute = require('./routes/gallery-router');
-const articleRoute = require('./routes/article-rowte');
+const articleRoute = require('./routes/article-route');
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));
