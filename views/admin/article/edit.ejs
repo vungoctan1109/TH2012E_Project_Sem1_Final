@@ -10,18 +10,18 @@
         <main class="content">
             <div class="container-fluid p-0">
                 <div class="row">
-                    <div class="col-12 col-xl-6">
+                    <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-body">
                                 <h1>EDIT AN ARTICLE</h1>
                                 <form action="/admin/article/edit?id=<%=item._id%>" method="post">
                                     <div class="mb-3">
                                         <label class="form-label">Article Title</label>
-                                        <input type="text" class="form-control" placeholder="Title" name="name" value="<%=item.name%>">
+                                        <input type="text" class="form-control w-25" placeholder="Title" name="name" value="<%=item.name%>">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Type of calligraphy</label>
-                                        <input type="text" class="form-control" placeholder="Title" name="category" value="<%=item.category%>">
+                                        <input type="text" class="form-control w-25" placeholder="Title" name="category" value="<%=item.category%>">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Content of the article</label>

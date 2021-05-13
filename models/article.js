@@ -3,20 +3,21 @@ const articleSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,
+            required: [true, 'Please enter your article name.'],
             trim: true
         },
         category: {
+            required:[true, 'Please enter your article categories.'],
             type: mongoose.Schema.Types.ObjectId,
             ref:'category'
         },
         articleDetail: {
             type: String,
-            trim: true
+            trim: [true, 'Please enter your article content.']
         },
         createAt:{
             type:Date,
-            trim:true
+            trim:[true, 'Please enter your posting time.']
         }
     }
 )

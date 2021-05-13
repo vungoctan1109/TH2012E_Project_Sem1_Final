@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Header-->
+<%-include('../partial/header')%>
+<!--Header-->
+<body>
+<div class="wrapper">
+
+    <!--left-menu-->
+    <%-include('../partial/left-menu')%>
+    <!--left-menu-->
+    <div class="main">
+
+        <!--Navbar-->
+        <%-include('../partial/nav-bar')%>
+        <!--Navbar-->
+        <main class="content">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">Delete post</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <!--row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <%= item.name%>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <!--row-->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <%= item.description%>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <form action="/admin/gallery/delete?id=<%=item._id%>" method="post">
+                        <button class="btn btn-danger">Confirm</button>
+                        <a href="/admin/gallery"><button type="button" class="btn btn-dark float-right">Back to list</button></a>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <!--footer-->
+        <%-include('../partial/footer')%>
+        <!--footer-->
+    </div>
+</div>
+<%-include('../partial/js.ejs')%>
+</body>
+</html>

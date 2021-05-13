@@ -21,7 +21,7 @@ exports.getList = function (req, res) {
         })
 
     })
-    // article.find(fillterObject).populate('category', 'name').exec(async function (err,data){
+    // article.find(fillterObject).populate('category').exec(async function (err,data){
     //     var cate = await article.find();
     //     res.render('admin/article/list',{
     //         list1:data,
