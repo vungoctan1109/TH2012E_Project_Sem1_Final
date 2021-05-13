@@ -1,0 +1,71 @@
+<!-- header -->
+<%- include('../partial/header.ejs') %>
+<body>
+<div class="wrapper">
+    <!-- sidebar -->
+    <%- include('../partial/left-menu.ejs') %>
+    <div class="main">
+        <!-- nav-bar -->
+        <%- include('../partial/nav-bar.ejs') %>
+        <main class="content">
+            <div class="container-fluid p-0">
+                <form action="/admin/article/create" method="post" class="mt-2">
+                    <div class="row">
+                        <div class="col-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1>CREATE NEW ARTICLE FORM</h1>
+                                    <div class="mb-3">
+                                        <label class="form-label"><strong>Article Title</strong></label>
+                                        <input type="text" class="form-control w-50" placeholder="Title" name="name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label"><strong>Type of calligraphy</strong></label>
+                                        <select name="categoryID" id="calligraphyType" class="form-control w-25">
+                                            <% for(var i = 0; i < cateList.length; i++) {
+                                            %>
+                                                <option value="<%=cateList[i]._id%>"><%=cateList[i].name%></option>
+                                            <%    
+                                            }%>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <label class="form-label"><strong>Article Detail</strong></label>
+                                        <div class="col-sm-12">
+                                            <textarea name="articleDetail" id="editor"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label"><strong>Posting date</strong></label>
+                                        <input type="date" class="form-control w-25" placeholder="yyyy-mm-dd" name="createAt">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </main>
+        <!-- footer -->
+        <%- include('../partial/footer.ejs') %>
+    </div>
+</div>
+<!-- js -->
+<%- include('../partial/js.ejs') %>
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+
+    CKEDITOR.editorConfig = function (config) {
+        // Define changes to default configuration here. For example:
+        config.language = 'vi';
+        // config.uiColor = '#AADC6E';
+        config.htmlEncodeOutput = false;
+        config.entities = false;
+        config.entities_latin = false;
+        config.ForceSimpleAmpersand = true;
+    };
+</script>
+</body>
+</html>
