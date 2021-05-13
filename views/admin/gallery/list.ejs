@@ -56,7 +56,19 @@
                                             <td><%= i+ 1%></td>
                                             <td><%= list[i].name%></td>
                                             <td><%= list[i].description%></td>
-                                            <td><img src="<%= list[i].thumbnail%>" class="img-thumbnail" style="width: 100px" alt=""></td>
+                                            <%
+                                            var arrayImage = list[i].thumbnail.split(',');
+                                            %>
+                                            <td>
+                                                <% if (arrayImage.length > 0){
+                                                    for (var j = 0; j < arrayImage.length; j++) {
+                                                     if(arrayImage[j].length === 0){ continue;}
+                                                %>
+                                                <img src="<%=arrayImage[j]%>" style="width:100px" class="img-thumbnail" alt="">
+                                                <%
+                                                }
+                                                }%>
+
                                             <td class="table-action">
                                                 <a href="/admin/gallery/detail?id=<%=list[i]._id%>" title="view detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info align-middle mr-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
@@ -75,11 +87,11 @@
                                     <tfoot>
                                     <tr>
                                     <tr>
-                                        <th>Number</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Photo posted</th>
-                                        <th>Action</th>
+                                        <th style="width: 5%" class="text-center">Number</th>
+                                        <th style="width: 20%" class="text-center">Name</th>
+                                        <th style="width: 30%" class="text-center">Description</th>
+                                        <th style="width: 20%" class="text-center">Photo posted</th>
+                                        <th style="width: 15%" class="text-center">Action</th>
                                     </tr>
                                     </tr>
                                     </tfoot>
@@ -104,7 +116,7 @@
         <!--footer-->
         <%-include('../partial/footer')%>
         <!--footer-->
-    </div>bài
+    </div>
 </div>
 <%-include('../partial/js.ejs')%>
 </body>
