@@ -9,7 +9,7 @@ const articleSchema = new mongoose.Schema(
         category: {
             required:[true, 'Please enter your article categories.'],
             type: mongoose.Schema.Types.ObjectId,
-            ref:'category'
+            ref:'categories'
         },
         articleDetail: {
             type: String,

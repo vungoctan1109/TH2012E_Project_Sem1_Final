@@ -1,5 +1,12 @@
 <!-- header -->
 <%- include('../partial/header.ejs') %>
+<head>
+    <style>
+        tr {
+
+        }
+    </style>
+</head>
 <body>
 <div class="wrapper">
     <!-- sidebar -->
@@ -12,14 +19,15 @@
                 <form action="/admin/article" method="get" name="seachForm">
                     <div class="row mb-3">
                         <div class="col-md-4">
-                            <label class="" for="inputEmail4">Danh mục</label>
+                            <label for="inputEmail4">Danh mục</label>
                             <!--                                            danh muc san pham duoc lay ra tu bang categories-->
                             <select name="categoryId" id="categorySelect" class="form-control">
+                                <option value="">---ALL---</option>
                                 <% for(var i = 0; i < cate.length; i++) {
                                 %>
-                                    <option value="<%=cate[i]._id%>"><%=cate[i].name%></option>
+                                    <option value="<%= cate[i]._id %>" <%= currentCategoryID == cate[i]._id ? 'selected':'' %>><%= cate[i].name %></option>
                                 <%
-                                }%>
+                                } %>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -50,7 +58,7 @@
                             <tr>
                                 <td><%= i + 1 %></td>
                                 <td><%= list1[i].name %></td>
-                                <td><%= list1[i].category%></td>
+                                <td><%= list1[i].category.name %></td>
                                 <td><%= list1[i].articleDetail %></td>
                                 <td><%= list1[i].createAt %></td>
                                 <td>
@@ -109,6 +117,12 @@
 </div>
 <!-- js -->
 <%- include('../partial/js.ejs') %>
+<script>
+    var categorySelect = document.forms['seachForm']['categoryId'];
+    categorySelect.onchange = function (){
+        document.forms['seachForm'].submit();
+    }
+</script>
 </body>
 
 </html>
