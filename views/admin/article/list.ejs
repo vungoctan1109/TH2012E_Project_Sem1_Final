@@ -69,8 +69,8 @@
                                 <td><%= i + 1 %></td>
                                 <td><%= list1[i].name %></td>
                                 <td><%= list1[i].category.name %></td>
-                                <td><%= moment(list1[i].createAt).format('DD MMMM YYYY') %></td>
-                                <td class="table-action">
+                                <td class="text-center"><%= moment(list1[i].createAt).format('DD MMMM YYYY') %></td>
+                                <td class="table-action" style="text-align: center">
                                     <a href="/admin/article/detail?id=<%= list1[i]._id %>" title="view detail">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24"
