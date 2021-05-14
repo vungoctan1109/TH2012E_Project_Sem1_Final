@@ -20,9 +20,10 @@ app.use((req, res, next)=>{
     res.locals.moment = moment;
     next();
 });
+
 app.set("view engine", "ejs");
 app.set("views", "views");
-app.use(express.static("public"));
+app.use(express.static('public'))
 
 //flash message
 app.use(
