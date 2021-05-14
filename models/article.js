@@ -11,6 +11,10 @@ const articleSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref:'categories'
         },
+        thumnail:{
+            type:String,
+            trim:true
+        },
         articleDetail: {
             type: String,
             trim: [true, 'Please enter your article content.'],
