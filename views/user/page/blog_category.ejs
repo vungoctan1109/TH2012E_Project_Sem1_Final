@@ -1,0 +1,84 @@
+<%- include('../partial/head.ejs') %>
+<head>
+    <link rel="stylesheet" href="/css/blog_category.css">
+    <title></title>
+</head>
+<body>
+<%- include('../partial/sidebar.ejs') %>
+<%- include('../partial/loader.ejs') %>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<main>
+    <div class="container">
+        <div class="posts-wrapper">
+            <div class="row">
+                <div class="w3-row">
+                    <!-- Blog entries -->
+                    <div class="w3-col l8 s12">
+                        <!-- Blog entry -->
+                        <div class="w3-card-4 w3-margin">
+                            <div class="w3-container">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <article class="post-detail">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <a href="01-Cursive_Greek.html"><img src="../img/Greek_Cursive_img.jpg" class="img-fluid"/></a>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <h4 class="post-title"><a href="01-Cursive_Greek.html">Cursive Greek</a></h4>
+                                                    <p>21/2/2020 &nbsp<span><a href="Greek_Calligraphy_List.html">Greek Calligraphy</a></span>
+                                                    </p>
+                                                    <p class="post-summary">Cursive greek letters. To use additional
+                                                        special characters such as. It replaced the earlier style of
+                                                        uncial writing from which it differed in using smaller more
+                                                        rounded and more connected letter forms and in using many
+                                                        ligatures many of these forms had previously developed as
+                                                        parts of more informal cursive writing...</p>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-col l4">
+                        <div class="w3-container w3-padding">
+                            <h4>Latest Posts</h4> <!-- Lấy 3 bài viết mới nhất -->
+                        </div>
+                        <ul class="w3-ul w3-hoverable ">
+                            <li class="w3-padding-16">
+                                <a href="">
+                                    <img src="" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                                    <span class="w3-large"><b></b></span><br>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w3-card w3-margin">
+                        <div class="w3-container w3-padding">
+                            <h4>Categories</h4> <!-- Lấy ra các category -->
+                        </div>
+                        <div class="w3-container ">
+                            <p>
+                                <a href=""><span class="w3-tag w3-black w3-margin-bottom"></span></a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- END Introduction Menu -->
+                </div>
+
+                <!-- END GRID -->
+            </div>
+            <br>
+            <!-- END w3-content -->
+        </div>
+    </div>
+    <br>
+    </div>
+</main>
+<%- include('../partial/footer.ejs') %>
+<%- include('../partial/js.ejs') %>
+<script src="/js/home.js"></script>
+</body>
+</html>

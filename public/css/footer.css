@@ -70,7 +70,7 @@ footer h3 {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    background-image: url(/img/home/footer/img.png);
+    background-image: url(../img/home/footer/img.png);
 }
 .footer-about p a {
     color: #aaa;

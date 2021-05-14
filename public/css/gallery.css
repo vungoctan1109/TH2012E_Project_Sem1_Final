@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*gallery*/
 #main {
     position: relative;
@@ -53,7 +53,7 @@
     overflow-y: scroll;
     z-index: 1;
 }
-#aside /img {
+#aside img {
     width: 100%;
     height: auto;
     vertical-align: top;
@@ -89,7 +89,7 @@
     border: 0;
 }
 /*\gallery*/
-=======
+
 * {
   box-sizing: border-box;
   padding: 0;
