@@ -56,12 +56,10 @@ mongoose.connect(
   }
 );
 
-
 // notified connection mongodb!
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
 });
-
 
 //home
 app.get('/user/page/home',(req, res) => {
