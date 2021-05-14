@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const moment =require('moment');
 const db = mongoose.connection;
 
 const session = require('express-session');
@@ -14,6 +15,11 @@ const categoryRoute = require('./routes/category_route');
 const galleryRoute = require('./routes/gallery-router');
 const articleRoute = require('./routes/article-route');
 
+//set date time format
+app.use((req, res, next)=>{
+    res.locals.moment = moment;
+    next();
+});
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));

@@ -22,7 +22,7 @@
                                     <div class="col-md-4">
                                         <label for="inputEmail4">Type Of Calligraphy</label>
                                         <!--                                            danh muc san pham duoc lay ra tu bang categories-->
-                                        <select name="categoryId" id="categorySelect" class="form-control">
+                                        <select name="category" id="categorySelect" class="form-control">
                                             <option value="">---ALL---</option>
                                             <% for(var i = 0; i < cate.length; i++) {
                                             %>
@@ -36,7 +36,13 @@
                                         <textarea style="min-height: 400px" class="form-control" placeholder="Enter..." rows="3" name="articleDetail"
                                                   spellcheck="false" ><%-item.articleDetail%></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-primary">Confirm</button>
+                                        <a href="/admin/article">
+                                            <button type="button" class="btn btn-dark float-right">Back to list</button>
+                                        </a>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
