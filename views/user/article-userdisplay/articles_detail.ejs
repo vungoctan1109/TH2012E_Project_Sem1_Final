@@ -1,0 +1,91 @@
+<%- include('../partial/head.ejs') %>
+<head>
+    <link rel="stylesheet" href="/css/blog_detail.css">
+    <title>Article Detail - Calligraphy</title>
+    <style>
+        section h1 {
+            font-size: xx-large;
+            font-family: 'Segoe UI",Arial,sans-serif;
+        }
+        section h3 {
+            color: darkblue;
+            font-size: large;
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<%- include('../partial/sidebar.ejs') %>
+<%- include('../partial/loader.ejs') %>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<main>
+    <section>
+        <div class="w3-row">
+            <!-- Blog entries -->
+            <div class="w3-col l8 s12">
+                <!-- Blog entry -->
+                <div class="w3-card-4 w3-margin w3-padding">
+                    <div class="w3-container">
+                        <div class="row">
+                            <div class="post-detail"><!-- Nội dung blog -->
+                                <div>
+                                    <h1><%=item.name%></h1>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h3 class="text-left"><%= moment(item.createAt).format('DD MMMM YYYY') %></h3>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h3 class="text-right"><%= item.category.name%></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <%-item.articleDetail%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Introduction menu -->
+            <div class="w3-col l4">
+                <!-- About Card -->
+
+                <!-- Posts -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding">
+                        <h4>Latest Posts</h4> <!-- Lấy 3 bài viết mới nhất -->
+                    </div>
+                    <ul class="w3-ul w3-hoverable ">
+                        <li class="w3-padding-16">
+                            <a href="">
+                                <img src="" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                                <span class="w3-large"><b></b></span><br>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Labels / tags -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding">
+                        <h4>Categories</h4> <!-- Lấy ra các category -->
+                    </div>
+                    <div class="w3-container ">
+                        <p>
+                            <a href=""><span class="w3-tag w3-black w3-margin-bottom"></span></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        </div>
+    </section>
+</main>
+<%- include('../partial/footer.ejs') %>
+<%- include('../partial/js.ejs') %>
+<script src="/js/home.js"></script>
+</body>
+</html>
