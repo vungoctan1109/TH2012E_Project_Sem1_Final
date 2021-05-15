@@ -71,7 +71,7 @@
                 <!-- About Card -->
 
                 <!-- Posts -->
-                <div class="w3-card w3-margin">
+                <div class="w3-card w3-margin w3-padding">
                     <div class="w3-container w3-padding">
                         <h4>Popular Posts</h4>
                     </div>
@@ -81,7 +81,9 @@
                         %>
                             <li class="w3-padding-16">
                                 <a href="/article/detail?id=<%= list[i]._id %>">
-                                    <img src="<%= list[i].thumnail %>" alt="Image" class="w3-left w3-margin-right img-fluid" style="width:75px">
+                                    <div style="position: relative">
+                                        <img src="<%= list[i].thumnail %>" alt="Image" class="w3-left w3-margin-right" style="width:65px">
+                                    </div>
                                     <span class=""><b><%= list[i].name %></b></span><br>
                                     <span style="font-style: italic"><%= moment(list[i].createAt).format('DD MMMM YYYY') %></span>
                                 </a>
