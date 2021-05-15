@@ -86,10 +86,6 @@ app.get("/user/page/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
 
-//blog_detail
-app.get("/user/page/blog_detail", (req, res) => {
-  res.render("user/page/blog_detail.ejs");
-});
 //----------------------------------------------------------------------------------
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
