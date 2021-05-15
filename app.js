@@ -51,7 +51,7 @@ app.use ((req, res, next) => {
 
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
-app.use('/admin/article', articleRoute);
+app.use('/', articleRoute);
 
 //mongoose
 // login connection into mongodb

@@ -13,19 +13,19 @@ exports.getList = function (req, res) {
         fillterObject["category"] = mongoose.Types.ObjectId(categoryId);
     }
     //fillter theo keyword
-    if (typeof  keyword !== "undefined" && keyword.length > 0){
-        fillterObject["$text"]={
+    if (typeof keyword !== "undefined" && keyword.length > 0) {
+        fillterObject["$text"] = {
             $search: keyword
         }
     }
 
-    article.find(fillterObject).populate('category').exec(async function (err,data){
+    article.find(fillterObject).populate('category').exec(async function (err, data) {
         var cate = await category.find();
-        res.render('admin/article/list',{
+        res.render('admin/article/list', {
             message: await req.consumeFlash('message'),
-            list1:data,
-            cate:cate,
-            currentCategoryID:categoryId
+            list1: data,
+            cate: cate,
+            currentCategoryID: categoryId
         })
     })
 }
@@ -45,15 +45,15 @@ exports.store = function (req, res) {
     newArticle.category = mongoose.Types.ObjectId(req.body.categoryID)
     //tra ve thong tin loi
     const error = newArticle.validateSync();
-    if (error && error.errors){
-        category.find().then(function (cateList){
-            res.render('admin/article/form',{
-                item:newArticle,
+    if (error && error.errors) {
+        category.find().then(function (cateList) {
+            res.render('admin/article/form', {
+                item: newArticle,
                 errors: error.errors,
-                cateList:cateList
+                cateList: cateList
             })
         })
-    }else {
+    } else {
         newArticle.save().then(async function () {
             await req.flash('message', 'Your article creation is complete!');
             res.redirect('/admin/article')
@@ -62,7 +62,7 @@ exports.store = function (req, res) {
 }
 //xoa bai viet
 exports.delete = function (req, res) {
-    article.findById(req.query.id).populate('category').exec(async function (err,data){
+    article.findById(req.query.id).populate('category').exec(async function (err, data) {
         res.render('admin/article/delete', {
             item: data,
         });
@@ -77,12 +77,12 @@ exports.doDelete = function (req, res) {
 //sua bai viet
 exports.edit = function (req, res) {
     var categoryId1 = req.query.categoryId;
-    article.findById(req.query.id).populate('category').exec(async function (err,data){
+    article.findById(req.query.id).populate('category').exec(async function (err, data) {
         var cate = await category.find();
         res.render('admin/article/edit', {
             item: data,
-            cate:cate,
-            currentCategoryID:categoryId1
+            cate: cate,
+            currentCategoryID: categoryId1
         });
     })
 }
@@ -94,8 +94,27 @@ exports.update = function (req, res) {
 }
 //lay thong tin chi tiet bai viet
 exports.getDetail = function (req, res) {
-    article.findById(req.query.id).populate('category').exec(async function (err,data){
+    article.findById(req.query.id).populate('category').exec(async function (err, data) {
         res.render('admin/article/detail', {
+            item: data
+        });
+    })
+}
+//----------------------User Part-----------------------------
+exports.getList_Aticles = function (req, res) {
+    var curentCategoryID = req.query.categoryID;
+    article.find({}).populate('category').exec(async function (err, data) {
+        res.render('user/article-userdisplay/articles_list', {
+            list: data,
+            curentCategoryID:curentCategoryID
+        });
+    })
+}
+
+//xem bai viet chi tiet - cai nay dung cho tat ca
+exports.article_detail = function (req, res) {
+    article.findById(req.query.id).populate('category').exec(async function (err,data){
+        res.render('user/article-userdisplay/articles_detail', {
             item: data
         });
     })

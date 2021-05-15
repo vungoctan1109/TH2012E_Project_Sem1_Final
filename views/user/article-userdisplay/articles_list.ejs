@@ -1,18 +1,29 @@
 <%- include('../partial/head.ejs') %>
 <head>
     <link rel="stylesheet" href="/css/blog_detail.css">
-    <title>Arabic Calligraphy</title>
+    <title>Articles - Calligraphy</title>
     <style>
         section h2 {
             font-size: x-large;
             font-family: 'Segoe UI",Arial,sans-serif;
         }
+
         section h3 {
             color: darkblue;
             font-size: large;
             font-family: 'Montserrat Alternates', sans-serif;
         }
 
+        section .img-responsive {
+            width: 90%;
+            height: 300px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        section .img-responsive:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -27,19 +38,22 @@
                 <!-- Blog entry -->
                 <div class="w3-card-4 w3-margin w3-padding">
                     <div class="w3-container">
-                        <div class="row">
-                            <h1 class="post-title"><!-- Tiêu đề --></h1>
-                            <p></p><!-- Ngày tạo -->
-                            <div class="post-detail"><!-- Nội dung blog -->
+                            <div class="post-detail row"><!-- Nội dung blog -->
                                 <% for(var i = 0; i < list.length; i++) {
                                 %>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <img class="img-thumbnail w-50" src="<%= list[i].thumnail %>" alt="">
+                                    <div class="col-lg-6 mt-4 " <%= list[i].category._id == curentCategoryID ? '' : 'hidden' %> >
+                                        <div class="col-lg-12 img-responsive ">
+                                            <a href="/article/detail?id=<%= list[i]._id %>"><img
+                                                        class="img-responsive"
+                                                        src="<%= list[i].thumnail %>" alt=""></a>
                                         </div>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-12">
                                             <div class="row">
-                                                <a href="/article/detail?id=<%= list[i]._id %>"><h2><%= list[i].name %></h2></a>
+                                                <a href="/article/detail?id=<%= list[i]._id %>">
+                                                    <h2><%= list[i].name %></h2></a>
+                                            </div>
+                                            <div class="row">
+                                                <h3>Type of article: <%= list[i].category.name %></h3>
                                             </div>
                                             <div class="row">
                                                 <h3><%= moment(list[i].createAt).format('DD MMMM YYYY') %></h3>
@@ -47,9 +61,8 @@
                                         </div>
                                     </div>
                                 <%
-                                }%>
+                                } %>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>

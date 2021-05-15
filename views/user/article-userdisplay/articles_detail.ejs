@@ -1,10 +1,10 @@
 <%- include('../partial/head.ejs') %>
 <head>
     <link rel="stylesheet" href="/css/blog_detail.css">
-    <title>Arabic Calligraphy</title>
+    <title>Article Detail - Calligraphy</title>
     <style>
-        section h2 {
-            font-size: x-large;
+        section h1 {
+            font-size: xx-large;
             font-family: 'Segoe UI",Arial,sans-serif;
         }
         section h3 {
@@ -28,26 +28,21 @@
                 <div class="w3-card-4 w3-margin w3-padding">
                     <div class="w3-container">
                         <div class="row">
-                            <h1 class="post-title"><!-- Tiêu đề --></h1>
-                            <p></p><!-- Ngày tạo -->
                             <div class="post-detail"><!-- Nội dung blog -->
-                                <% for(var i = 0; i < list.length; i++) {
-                                %>
+                                <div>
+                                    <h1><%=item.name%></h1>
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                            <img class="img-thumbnail w-50" src="<%= list[i].thumnail %>" alt="">
+                                        <div class="col-lg-6">
+                                            <h3 class="text-left"><%= moment(item.createAt).format('DD MMMM YYYY') %></h3>
                                         </div>
-                                        <div class="col-lg-8">
-                                            <div class="row">
-                                                <a href=""><h2><%= list[i].name %></h2></a>
-                                            </div>
-                                            <div class="row">
-                                                <h3><%= moment(list[i].createAt).format('DD MMMM YYYY') %></h3>
-                                            </div>
+                                        <div class="col-lg-6">
+                                            <h3 class="text-right"><%= item.category.name%></h3>
                                         </div>
                                     </div>
-                                <%
-                                }%>
+                                </div>
+                                <div>
+                                    <%-item.articleDetail%>
+                                </div>
                             </div>
                         </div>
                     </div>
