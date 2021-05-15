@@ -20,12 +20,12 @@
 <%- include('../partial/loader.ejs') %>
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 <main>
-    <section>
+    <section class="container">
         <div class="w3-row">
             <!-- Blog entries -->
-            <div class="w3-col l8 s12">
+            <div class="w3-col l12 s12">
                 <!-- Blog entry -->
-                <div class="w3-card-4 w3-margin w3-padding">
+                <div class="w3-card-4 w3-margin w3-padding" style="background: white">
                     <div class="w3-container">
                         <div class="row">
                             <div class="post-detail"><!-- Nội dung blog -->
@@ -54,25 +54,7 @@
                 <!-- About Card -->
 
                 <!-- Posts -->
-                <div class="w3-card w3-margin">
-                    <div class="w3-container w3-padding">
-                        <h4>Popular Posts</h4> <!-- Lấy 3 bài viết mới nhất -->
-                    </div>
-                    <ul class="w3-ul w3-hoverable ">
-                        <%
-                        for(var i = 2 ; i >= 0 ; i--) {
-                        %>
-                            <li class="w3-padding-16">
-                                <a href="/article/detail?id=<%= list[i]._id %>">
-                                    <img src="<%= list[i].thumnail %>" alt="Image" class="w3-left w3-margin-right img-fluid" style="width:75px">
-                                    <span class=""><b><%= list[i].name %></b></span><br>
-                                    <span style="font-style: italic"><%= moment(list[i].createAt).format('DD MMMM YYYY') %></span>
-                                </a>
-                            </li>
-                        <%
-                        } %>
-                    </ul>
-                </div>
+
                 <!-- Labels / tags -->
             </div>
         </div>

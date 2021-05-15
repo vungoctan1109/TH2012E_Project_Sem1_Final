@@ -81,4 +81,7 @@ main a:hover {
     -webkit-box-orient: vertical;
 }
 
+.post-detail {
+    padding: 30px;
+}
 
