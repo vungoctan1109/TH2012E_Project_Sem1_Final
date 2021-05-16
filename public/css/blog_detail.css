@@ -35,7 +35,6 @@ main a,i,p {
 }
 
 .post-title {
-    font-family: 'AmericanaTOTExtBol';
     font-weight: 550;
     font-style: normal;
 }
@@ -73,4 +72,46 @@ main a:hover {
     font-weight: 700;
 }
 
+.article-summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
 
+.post-detail {
+    padding: 30px;
+}
+
+.w3-card-3 {
+    background: #e7e5e5;
+    border-radius: 15px;
+}
+
+.read_more {
+    margin-top: 10px;
+}
+
+.read_more a {
+    background: none;
+    color: black;
+    width: 140px;
+    font-family: Sacramento;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 22px;
+}
+
+.read_more:hover {
+    color: #000;
+    background: none;
+}
+
+.img-responsive {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
