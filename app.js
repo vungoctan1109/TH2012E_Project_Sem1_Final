@@ -70,19 +70,19 @@ db.once("open", function () {
 
 
 //home
-app.get('/user/page/home',(req, res) => {
+app.get('/home',(req, res) => {
   res.render('user/page/home.ejs');
 })
 //contact
-app.get("/user/page/contact", (req, res) => {
+app.get("/contact", (req, res) => {
   res.render("user/page/contact.ejs");
 });
 //gallery
-app.get("/user/page/gallery", (req, res) => {
+app.get("/gallery", (req, res) => {
   res.render("user/page/gallery.ejs");
 });
 // about
-app.get("/user/page/about", (req, res) => {
+app.get("/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
 
