@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 main {
     padding: 30px 0;
     background-color: rgba(226,221,222,1);

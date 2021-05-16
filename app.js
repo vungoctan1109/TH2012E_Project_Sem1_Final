@@ -85,6 +85,10 @@ app.get("/gallery", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
+// about
+app.get("/blog", (req, res) => {
+  res.render("user/page/blog.ejs");
+});
 
 //----------------------------------------------------------------------------------
 app.listen(port, () => {
