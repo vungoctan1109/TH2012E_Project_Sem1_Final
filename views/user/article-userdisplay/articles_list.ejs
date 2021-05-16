@@ -40,7 +40,7 @@
                 <!-- Blog entry -->
                 <% for(var i = 0; i < list.length; i++) {
                 %>
-                <div class="w3-card-3" style=" display:<%= list[i].category._id == curentCategoryID ? '' : 'none' %> ">
+                <div class="w3-card-3 w3-padding w3-margin" style=" display:<%= list[i].category._id == curentCategoryID ? '' : 'none' %> ">
                     <div class="w3-container w3-margin">
                         <div class="post-list"><!-- Nội dung blog -->
                                 <div class="mt-4">
@@ -55,7 +55,7 @@
                                                 <h2><%= list[i].name %></h2></a>
                                             <p class="mb-2"
                                                style="font-style: italic"><%= moment(list[i].createAt).format('DD MMMM YYYY') %></p>
-                                            <p style="font-weight: bold;font-size: 19px"><%= list[i].category.name %></p>
+                                            <p style="font-weight: bold;font-size: 19px" class="mb-0"><%= list[i].category.name %></p>
                                             <div class="article-summary mt-0">
                                                 <p><%- list[i].articleDetail %></p>
                                             </div>

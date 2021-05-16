@@ -7,6 +7,7 @@
             font-size: xx-large;
             font-family: 'Segoe UI",Arial,sans-serif;
         }
+
         section h3 {
             color: darkblue;
             font-size: large;
@@ -21,42 +22,33 @@
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 <main>
     <section class="container">
-        <div class="w3-row">
+        <div class="row">
             <!-- Blog entries -->
-            <div class="w3-col l12 s12">
-                <!-- Blog entry -->
-                <div class="w3-card-4 w3-margin w3-padding" style="background: white">
-                    <div class="w3-container">
-                        <div class="row">
-                            <div class="post-detail"><!-- Nội dung blog -->
-                                <div>
-                                    <h1><%=item.name%></h1>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h3 class="text-left"><%= moment(item.createAt).format('DD MMMM YYYY') %></h3>
-                                        </div>
-                                        <div class="col-lg-6 mb-3">
-                                            <h3 class="text-right"><%= item.category.name%></h3>
-                                        </div>
-                                        <img src="<%=item.thumnail%>" alt="" class="img-fluid mb-3">
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-padding col" style="background: white">
+                <div class="w3-container">
+                    <div class="row">
+                        <div class="post-detail"><!-- Nội dung blog -->
+                            <div>
+                                <h1><%= item.name %></h1>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3 class="text-left"><%= moment(item.createAt).format('DD MMMM YYYY') %></h3>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <h3 class="text-right"><%= item.category.name %></h3>
                                     </div>
                                 </div>
-                                <div>
-                                    <%-item.articleDetail%>
+                                <div class="img-responsive">
+                                    <img src="<%= item.thumnail %>" alt="" class="img-fluid mb-3">
                                 </div>
+                            </div>
+                            <div>
+                                <%- item.articleDetail %>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Introduction menu -->
-            <div class="w3-col l4">
-                <!-- About Card -->
-
-                <!-- Posts -->
-
-                <!-- Labels / tags -->
             </div>
         </div>
         <br>
