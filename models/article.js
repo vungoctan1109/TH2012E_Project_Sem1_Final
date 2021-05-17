@@ -21,7 +21,7 @@ const articleSchema = new mongoose.Schema(
             required:[true, 'Article detail can not be blank.']
         },
         createAt:{
-            type:Date, default:Date.now
+            type:Date
         }
     }
 )
