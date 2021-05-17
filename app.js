@@ -89,6 +89,10 @@ app.get("/about", (req, res) => {
 app.get("/blog", (req, res) => {
   res.render("user/page/blog.ejs");
 });
+//sigup_login
+app.get("/sigup-Login", (req, res) => {
+  res.render("user/page/signUp-login.ejs");
+});
 
 //----------------------------------------------------------------------------------
 app.listen(port, () => {
