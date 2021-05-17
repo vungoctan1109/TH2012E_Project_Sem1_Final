@@ -14,6 +14,7 @@ const { flash } = require('express-flash-message');
 const categoryRoute = require('./routes/category_route');
 const galleryRoute = require('./routes/gallery-router');
 const articleRoute = require('./routes/article-route');
+const usergalleryRoute = require('./routes/user-gallery-router')
 
 //set date time format
 app.use((req, res, next)=>{
@@ -54,7 +55,7 @@ app.use('/admin/gallery', galleryRoute);
 app.use('/admin/article', articleRoute);
 
 //mongoose
-// login connection into mongodb
+//login connection into mongodb
 mongoose.connect(
   "mongodb+srv://admin:admin@cluster0.znxdx.mongodb.net/TH2012E_Project_Sem1_Final?retryWrites=true&w=majority",
   {
@@ -62,6 +63,7 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+
 
 // notified connection mongodb!
 db.on("error", console.error.bind(console, "connection error:"));
@@ -76,10 +78,13 @@ app.get('/user/page/home',(req, res) => {
 app.get("/user/page/contact", (req, res) => {
   res.render("user/page/contact.ejs");
 });
+
 //gallery
-app.get("/user/page/gallery", (req, res) => {
-  res.render("user/page/gallery.ejs");
-});
+// app.get("/user/page/gallery", (req, res) => {
+//   res.render("user/page/gallery.ejs");
+// });
+app.use('/user/page/gallery',usergalleryRoute);
+
 // about
 app.get("/user/page/about", (req, res) => {
   res.render("user/page/about_us.ejs");

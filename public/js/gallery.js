@@ -11,11 +11,13 @@ $tiles.on("click", function(e){
     e.preventDefault();
     e.stopPropagation();
     if(!$("html").hasClass(slideClass)){
+        $tiles.removeClass("active");
+        $(this).addClass("active");
         $(this).attr("aria-expanded","true");
         loadTileData($(this));
-    } else {
-      killAside();
-      $(this).attr("aria-expanded", "false");
+    }else{
+        killAside();
+        $(this).attr("aria-expanded","false");
     }
 });
 
@@ -39,17 +41,20 @@ function showAside(){
         $("html").toggleClass(slideClass);
         $aside.attr("aria-hidden","false");
         focusCloseButton();
-    }  
+    }
 }
 
 // handle esc key
 window.addEventListener("keyup", function(e){
+
     // grab key pressed
     var code = (e.keyCode ? e.keyCode : e.which);
+
     // escape
     if(code === 27){
         killAside();
     }
+
 }, false);
 
 // kill aside
@@ -61,14 +66,20 @@ function killAside(){
         $tiles.attr("aria-expanded","false");
     }
 }
+
 // send focus to close button
 function focusCloseButton(){
     $asideClose.focus();
 }
+
 // send focus back to item that triggered event
 function sendFocusBack(){
     $(".active").focus();
 }
+
+$('a').on("click", (e) => {
+    $(".header").css("display", "none");
+});
 
 // handle body click to close off-canvas
 $parent.on("click",function(e){
@@ -76,16 +87,4 @@ $parent.on("click",function(e){
         killAside();
     }
 });
-$('a').on("click", (e) => {
-  $(".header").css("display", "none");
-});
-$(".close").on("click", (e) => {
-    $(".header").css("display", "block");
-    killAside();
-    $(this).attr("aria-expanded", "false");
-});
 
-$(window).on("load", function (event) {
-  $("body").removeClass("preloading");
-  $(".loaderbox").delay(1000).fadeOut("slow");
-});
