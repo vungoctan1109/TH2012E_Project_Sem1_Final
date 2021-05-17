@@ -45,6 +45,13 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <label class="form-label"><strong>Article Description</strong></label>
+                                        <div class="col-sm-12">
+                                            <textarea name="articleDescription" class="w-75" style="height: 100px"><%= typeof item !== "undefined" ? item.articleDescription : ''%></textarea>
+                                            <span class="text-danger"><%= typeof errors !== "undefined" && errors.articleDescription ? errors.articleDescription.message : ''%></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <label class="form-label"><strong>Article Detail</strong></label>
                                         <div class="col-sm-12">
                                             <textarea name="articleDetail" id="editor"><%= typeof item !== "undefined" ? item.articleDetail : ''%></textarea>
