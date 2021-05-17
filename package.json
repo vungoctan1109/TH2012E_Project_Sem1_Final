@@ -1,7 +1,6 @@
 {
   "name": "admin",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -23,5 +22,14 @@
     "mongoose": "^5.12.7",
     "nodemon": "^2.0.7",
     "save": "^2.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vungoctan1109/TH2012E_Project_Sem1_Final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vungoctan1109/TH2012E_Project_Sem1_Final/issues"
+  },
+  "homepage": "https://github.com/vungoctan1109/TH2012E_Project_Sem1_Final#readme",
+  "description": ""
 }
