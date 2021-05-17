@@ -27,13 +27,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
+                                    <img class="img-thumbnail w-25" src="<%= item.thumnail %>" alt="">
+                                </div>
+                                <div class="mb-3">
                                     <div class="row">
                                         <%- item.articleDetail%>
                                     </div>
                                 </div>
                                 <form action="#" method="post">
                                     <div>
-                                        <a href="/admin/article/edit?id=<%= item._id %>">
+                                        <a href="/admin/article/edit?id=<%= item._id %>&categoryId=<%= item.category._id%>">
                                             <button type="button" class="btn btn-primary">Edit</button>
                                         </a>
                                         <a href="/admin/article">

@@ -51,3 +51,7 @@ $(document).ready(function () {
 
     window.addEventListener("scroll", scrollAppear);
 });
+$(window).on("load", function (event) {
+    $("body").removeClass("preloading");
+    $(".loaderbox").delay(1000).fadeOut("slow");
+});

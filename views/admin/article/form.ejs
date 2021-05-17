@@ -27,10 +27,29 @@
                                             <% for(var i = 0; i < cateList.length; i++) {
                                             %>
                                                 <option value="<%=cateList[i]._id%>"><%=cateList[i].name%></option>
-                                            <%    
+                                            <%
                                             }%>
                                         </select>
 <!--                                        <span class="text-danger"><%= typeof errors !== "undefined" && errors.category && errors.category !== '' ? errors.category.message : ''%></span>-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <div class="row">
+                                                <label class="form-label" for="inputEmail4"><strong>Article Thumnail</strong></label>
+                                            </div>
+                                            <img src="" alt="" id="imgThumnail01" class="img-thumbnail"
+                                                 style="width: 220px;display: none">
+                                            <input id="valueUpLoad" type="text" value="" name="thumnail"
+                                                   style="display: none">
+                                            <input type="button" id="btnThunailLink" value="Choose your file">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="form-label"><strong>Article Description</strong></label>
+                                        <div class="col-sm-12">
+                                            <textarea name="articleDescription" class="w-75" style="height: 100px"><%= typeof item !== "undefined" ? item.articleDescription : ''%></textarea>
+                                            <span class="text-danger"><%= typeof errors !== "undefined" && errors.articleDescription ? errors.articleDescription.message : ''%></span>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <label class="form-label"><strong>Article Detail</strong></label>
@@ -55,6 +74,7 @@
         <%- include('../partial/footer.ejs') %>
     </div>
 </div>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
 <!-- js -->
 <%- include('../partial/js.ejs') %>
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
@@ -70,6 +90,28 @@
         config.entities_latin = false;
         config.ForceSimpleAmpersand = true;
     };
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // upload file Thumnail
+        var btnThumnailLink = document.getElementById("btnThunailLink")
+        var myWidget_thumnail = cloudinary.createUploadWidget({
+                cloudName: 'quynv300192',
+                uploadPreset: 'qivdh8qo'
+            }, (error, result) => {
+                if (!error && result && result.event === "success") {
+                    console.log('Done! Here is the image info: ', result.info);
+                    console.log(result.info.url)
+                    document.getElementById("imgThumnail01").style.display = 'block';
+                    document.getElementById("imgThumnail01").src = result.info.url;
+                    document.getElementById("valueUpLoad").value = result.info.url;
+                }
+            }
+        )
+        btnThumnailLink.addEventListener("click", function () {
+            myWidget_thumnail.open();
+        }, false);
+    })
+
 </script>
 </body>
 </html>

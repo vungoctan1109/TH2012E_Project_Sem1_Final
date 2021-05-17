@@ -1,0 +1,62 @@
+<%- include('../partial/head.ejs') %>
+<head>
+    <link rel="stylesheet" href="/css/blog_detail.css">
+    <title>Article Detail - Calligraphy</title>
+    <style>
+        section h1 {
+            font-size: xx-large;
+            font-family: 'Segoe UI",Arial,sans-serif;
+        }
+
+        section h3 {
+            color: darkblue;
+            font-size: large;
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<%- include('../partial/sidebar.ejs') %>
+<%- include('../partial/loader.ejs') %>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<main>
+    <section class="container">
+        <div class="row">
+            <!-- Blog entries -->
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-padding col" style="background: white">
+                <div class="w3-container">
+                    <div class="row">
+                        <div class="post-detail"><!-- Nội dung blog -->
+                            <div>
+                                <h1><%= item.name %></h1>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3 class="text-left"><%= moment(item.createAt).format('DD MMMM YYYY') %></h3>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <h3 class="text-right"><%= item.category.name %></h3>
+                                    </div>
+                                </div>
+                                <div class="img-responsive">
+                                    <img src="<%= item.thumnail %>" alt="" class="img-fluid mb-3">
+                                </div>
+                            </div>
+                            <div>
+                                <%- item.articleDetail %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        </div>
+    </section>
+</main>
+<%- include('../partial/footer.ejs') %>
+<%- include('../partial/js.ejs') %>
+<script src="/js/home.js"></script>
+</body>
+</html>

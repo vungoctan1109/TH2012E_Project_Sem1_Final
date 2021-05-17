@@ -52,7 +52,7 @@ app.use ((req, res, next) => {
 
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
-app.use('/admin/article', articleRoute);
+app.use('/', articleRoute);
 
 //mongoose
 //login connection into mongodb
@@ -71,29 +71,31 @@ db.once("open", function () {
 });
 
 //home
-app.get('/user/page/home',(req, res) => {
+app.get('/home',(req, res) => {
   res.render('user/page/home.ejs');
 })
 //contact
-app.get("/user/page/contact", (req, res) => {
+app.get("/contact", (req, res) => {
   res.render("user/page/contact.ejs");
 });
 
 //gallery
-// app.get("/user/page/gallery", (req, res) => {
-//   res.render("user/page/gallery.ejs");
-// });
+
 app.use('/user/page/gallery',usergalleryRoute);
 
 // about
-app.get("/user/page/about", (req, res) => {
+app.get("/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
-
-//blog_detail
-app.get("/user/page/blog_detail", (req, res) => {
-  res.render("user/page/blog_detail.ejs");
+// about
+app.get("/blog", (req, res) => {
+  res.render("user/page/blog.ejs");
 });
+//sigup_login
+app.get("/sigup-Login", (req, res) => {
+  res.render("user/page/signUp-login.ejs");
+});
+
 //----------------------------------------------------------------------------------
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
