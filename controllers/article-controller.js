@@ -41,6 +41,7 @@ exports.create = function (req, res) {
 exports.store = function (req, res) {
     const newArticle = new article(req.body);
     //tu dong fill gia tri date cho thoi diem req, truoc khi save and then
+    newArticle.updateAtttt = Date.now();
     newArticle.createAt = Date.now();
     newArticle.category = mongoose.Types.ObjectId(req.body.categoryID)
     //tra ve thong tin loi

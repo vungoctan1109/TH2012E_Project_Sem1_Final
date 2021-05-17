@@ -56,11 +56,13 @@
                         <thead>
                         <tr>
                             <th style="width: 1%" class="text-center">Number</th>
-                            <th style="width: 20%" class="text-center">Title</th>
+                            <th style="width: 12%" class="text-center">Title</th>
+                            <th style="width: 4%" class="text-center">Author</th>
                             <th style="width: 7%" class="text-center">Calligraphy Genre</th>
                             <th style="width: 12%" class="text-center">Article Thumbnail</th>
                             <th style="width: 12%" class="text-center">Create At</th>
-                            <th style="width: 8%" class="text-center">Action</th>
+                            <th style="width: 12%" class="text-center">Update At</th>
+                            <th style="width: 16%" class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,11 +71,13 @@
                             <tr>
                                 <td><%= i + 1 %></td>
                                 <td><%= list1[i].name %></td>
+                                <td><%= list1[i].author %></td>
                                 <td><%= list1[i].category.name %></td>
                                 <td>
                                     <img class="img-thumbnail" src="<%= list1[i].thumnail %>" alt="">
                                 </td>
                                 <td class="text-center"><%= moment(list1[i].createAt).format('DD MMMM YYYY - HH:mm:ss') %></td>
+                                <td class="text-center"><%= moment(list1[i].updateAtttt).format('DD MMMM YYYY - HH:mm:ss') %></td>
                                 <td class="table-action" style="text-align: center">
                                     <a href="/admin/article/detail?id=<%= list1[i]._id %>" title="view detail">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -120,11 +124,14 @@
                         <tfoot>
                         <tr>
                             <th style="width: 1%" class="text-center">Number</th>
-                            <th style="width: 20%" class="text-center">Title</th>
+                            <th style="width: 12%" class="text-center">Title</th>
+                            <th style="width: 4%" class="text-center">Author</th>
                             <th style="width: 7%" class="text-center">Calligraphy Genre</th>
                             <th style="width: 12%" class="text-center">Article Thumbnail</th>
                             <th style="width: 12%" class="text-center">Create At</th>
-                            <th style="width: 8%" class="text-center">Action</th>
+                            <th style="width: 12%" class="text-center">Update At</th>
+                            <th style="width: 16%" class="text-center">Action</th>
+
                         </tr>
                         </tfoot>
                     </table>
