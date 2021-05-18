@@ -81,7 +81,7 @@ app.get("/contact", (req, res) => {
 
 //gallery
 
-app.use('/user/page/gallery',usergalleryRoute);
+app.use('/gallery',usergalleryRoute);
 
 // about
 app.get("/about", (req, res) => {
@@ -92,7 +92,7 @@ app.get("/blog", (req, res) => {
   res.render("user/page/blog.ejs");
 });
 //sigup_login
-app.get("/sigup-Login", (req, res) => {
+app.get("/login", (req, res) => {
   res.render("user/page/signUp-login.ejs");
 });
 
