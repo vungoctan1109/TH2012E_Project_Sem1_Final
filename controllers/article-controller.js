@@ -19,7 +19,7 @@ exports.getList = function (req, res) {
         }
     }
 
-    article.find(fillterObject).populate('category').exec(async function (err, data) {
+    article.find(fillterObject).populate('category').sort({createAt: 'desc'}).exec(async function (err, data) {
         var cate = await category.find();
         res.render('admin/article/list', {
             message: await req.consumeFlash('message'),
@@ -104,7 +104,7 @@ exports.getDetail = function (req, res) {
 //----------------------User Part-----------------------------
 exports.getList_Aticles = function (req, res) {
     var curentCategoryID = req.query.categoryID;
-    article.find({}).populate('category').exec(async function (err, data) {
+    article.find({}).populate('category').sort({createAt: 'desc'}).exec(async function (err, data) {
         res.render('user/article-userdisplay/articles_list', {
             list: data,
             curentCategoryID:curentCategoryID
