@@ -5,6 +5,7 @@ const articleController = require('../controllers/article-controller');
 
 //lay danh sach bai viet
 route.get('/admin/article',articleController.getList);
+route.get('/blog',articleController.getListBlog);
 
 //add new article
 route.get('/admin/article/create',articleController.create);
