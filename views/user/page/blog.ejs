@@ -64,11 +64,12 @@
                     <span><%= moment(list1[i].createAt).format('DD MMMM YYYY') %></span>
                 </div>
                 <div class="blog-text">
-
                     <h2><%=list1[i].name%></h2>
-                    <p><%=list1[i].articleDescription%></p>
-                    <a href="/article/detail?id=<%= list1[i]._id %>">Read More</a>
+                    <div class="article-description">
+                        <p><%=list1[i].articleDescription%></p>
+                    </div>
                 </div>
+                <a href="/article/detail?id=<%= list1[i]._id %>">Read More</a>
             </div>
             <%
             } %>
@@ -76,131 +77,131 @@
     </div>
 </section>
 <!-- end of blog -->
-<section class="design" id="design">
-    <div class="container-blog">
-        <div class="title">
-            <h2>LASTEST POSTS</h2>
-            <p>recent calligraphy & designs on the blog</p>
-        </div>
+<!--<section class="design" id="design">-->
+<!--    <div class="container-blog">-->
+<!--        <div class="title">-->
+<!--            <h2>LASTEST POSTS</h2>-->
+<!--            <p>recent calligraphy & designs on the blog</p>-->
+<!--        </div>-->
 
-        <div class="design-content">
-            <!-- item -->
-            <div class="design-item">
-                <div class="design-img">
-                    <img src="/img/blog/art-design-1.jpg" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span>20 January, 2020</span>
-                </div>
-                <div class="blog-text">
+<!--        <div class="design-content">-->
+<!--            &lt;!&ndash; item &ndash;&gt;-->
+<!--            <div class="design-item">-->
+<!--                <div class="design-img">-->
+<!--                    <img src="/img/blog/art-design-1.jpg" alt="">-->
+<!--                    <span><i class="far fa-heart"></i> 22</span>-->
+<!--                    <span>20 January, 2020</span>-->
+<!--                </div>-->
+<!--                <div class="blog-text">-->
 
-                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum
-                        laudantium
-                        nihil! Quaerat.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <!-- end of item -->
-            <!-- item -->
-            <div class="design-item">
-                <div class="design-img">
-                    <img src="/img/blog/art-design-1.jpg" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span>20 January, 2020</span>
-                </div>
-                <div class="blog-text">
+<!--                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>-->
+<!--                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum-->
+<!--                        laudantium-->
+<!--                        nihil! Quaerat.</p>-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end of item &ndash;&gt;-->
+<!--            &lt;!&ndash; item &ndash;&gt;-->
+<!--            <div class="design-item">-->
+<!--                <div class="design-img">-->
+<!--                    <img src="/img/blog/art-design-1.jpg" alt="">-->
+<!--                    <span><i class="far fa-heart"></i> 22</span>-->
+<!--                    <span>20 January, 2020</span>-->
+<!--                </div>-->
+<!--                <div class="blog-text">-->
 
-                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum
-                        laudantium
-                        nihil! Quaerat.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <!-- end of item -->
-            <!-- item -->
-            <div class="design-item">
-                <div class="design-img">
-                    <img src="/img/blog/art-design-1.jpg" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span>20 January, 2020</span>
-                </div>
-                <div class="blog-text">
+<!--                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>-->
+<!--                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum-->
+<!--                        laudantium-->
+<!--                        nihil! Quaerat.</p>-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end of item &ndash;&gt;-->
+<!--            &lt;!&ndash; item &ndash;&gt;-->
+<!--            <div class="design-item">-->
+<!--                <div class="design-img">-->
+<!--                    <img src="/img/blog/art-design-1.jpg" alt="">-->
+<!--                    <span><i class="far fa-heart"></i> 22</span>-->
+<!--                    <span>20 January, 2020</span>-->
+<!--                </div>-->
+<!--                <div class="blog-text">-->
 
-                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum
-                        laudantium
-                        nihil! Quaerat.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <!-- end of item -->
-        </div>
-    </div>
-</section>
-<!-- design -->
-<section class="design" id="design">
-    <div class="container-blog">
-        <div class="title">
-            <h2>Calligraphy & Designs</h2>
-            <p>recent calligraphy & designs on the blog</p>
-        </div>
+<!--                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>-->
+<!--                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum-->
+<!--                        laudantium-->
+<!--                        nihil! Quaerat.</p>-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end of item &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; design &ndash;&gt;-->
+<!--<section class="design" id="design">-->
+<!--    <div class="container-blog">-->
+<!--        <div class="title">-->
+<!--            <h2>Calligraphy & Designs</h2>-->
+<!--            <p>recent calligraphy & designs on the blog</p>-->
+<!--        </div>-->
 
-        <div class="design-content">
-            <!-- item -->
-            <div class="design-item">
-                <div class="design-img">
-                    <img src="/img/blog/art-design-1.jpg" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span>20 January, 2020</span>
-                </div>
-                <div class="blog-text">
+<!--        <div class="design-content">-->
+<!--            &lt;!&ndash; item &ndash;&gt;-->
+<!--            <div class="design-item">-->
+<!--                <div class="design-img">-->
+<!--                    <img src="/img/blog/art-design-1.jpg" alt="">-->
+<!--                    <span><i class="far fa-heart"></i> 22</span>-->
+<!--                    <span>20 January, 2020</span>-->
+<!--                </div>-->
+<!--                <div class="blog-text">-->
 
-                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum
-                        laudantium
-                        nihil! Quaerat.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <!-- end of item -->
-            <!-- item -->
-            <div class="design-item">
-                <div class="design-img">
-                    <img src="/img/blog/art-design-1.jpg" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span>20 January, 2020</span>
-                </div>
-                <div class="blog-text">
+<!--                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>-->
+<!--                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum-->
+<!--                        laudantium-->
+<!--                        nihil! Quaerat.</p>-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end of item &ndash;&gt;-->
+<!--            &lt;!&ndash; item &ndash;&gt;-->
+<!--            <div class="design-item">-->
+<!--                <div class="design-img">-->
+<!--                    <img src="/img/blog/art-design-1.jpg" alt="">-->
+<!--                    <span><i class="far fa-heart"></i> 22</span>-->
+<!--                    <span>20 January, 2020</span>-->
+<!--                </div>-->
+<!--                <div class="blog-text">-->
 
-                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum
-                        laudantium
-                        nihil! Quaerat.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <!-- end of item -->
-            <!-- item -->
-            <div class="design-item">
-                <div class="design-img">
-                    <img src="/img/blog/art-design-1.jpg" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span>20 January, 2020</span>
-                </div>
-                <div class="blog-text">
+<!--                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>-->
+<!--                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum-->
+<!--                        laudantium-->
+<!--                        nihil! Quaerat.</p>-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end of item &ndash;&gt;-->
+<!--            &lt;!&ndash; item &ndash;&gt;-->
+<!--            <div class="design-item">-->
+<!--                <div class="design-img">-->
+<!--                    <img src="/img/blog/art-design-1.jpg" alt="">-->
+<!--                    <span><i class="far fa-heart"></i> 22</span>-->
+<!--                    <span>20 January, 2020</span>-->
+<!--                </div>-->
+<!--                <div class="blog-text">-->
 
-                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum
-                        laudantium
-                        nihil! Quaerat.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <!-- end of item -->
-        </div>
-    </div>
-</section>
+<!--                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>-->
+<!--                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum-->
+<!--                        laudantium-->
+<!--                        nihil! Quaerat.</p>-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; end of item &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 <!-- end of design -->
 <!-- about -->
 <section class="about" id="about">
