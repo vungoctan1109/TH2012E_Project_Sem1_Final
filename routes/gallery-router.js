@@ -17,4 +17,7 @@ route.post('/delete', galleryController.postDelete);
 route.get('/create', galleryController.getCreate);
 // xử lý khi submit form, lưu vào database và hiển thị thông báo
 route.post('/create', galleryController.postCreate);
+
+
+
 module.exports = route;

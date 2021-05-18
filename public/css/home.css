@@ -38,7 +38,6 @@ h3 {
   text-align: center;
   font-weight: 600;
   font-style: normal;
-  font-size: 26.4px;
 }
 section {
   position: relative;
@@ -121,8 +120,6 @@ section {
   text-align: center;
   font-weight: 600;
   font-style: normal;
-  font-size: 26.4px;
-  text-align: center;
   justify-content: center;
   align-items: center;
 }

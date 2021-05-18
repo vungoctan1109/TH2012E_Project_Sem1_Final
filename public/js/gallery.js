@@ -14,8 +14,8 @@ $tiles.on("click", function(e){
         $(this).attr("aria-expanded","true");
         loadTileData($(this));
     } else {
-      killAside();
-      $(this).attr("aria-expanded", "false");
+        killAside();
+        $(this).attr("aria-expanded", "false");
     }
 });
 
@@ -39,7 +39,7 @@ function showAside(){
         $("html").toggleClass(slideClass);
         $aside.attr("aria-hidden","false");
         focusCloseButton();
-    }  
+    }
 }
 
 // handle esc key
@@ -76,16 +76,13 @@ $parent.on("click",function(e){
         killAside();
     }
 });
+
 $('a').on("click", (e) => {
-  $(".header").css("display", "none");
+    $(".header").css("display", "none");
 });
+
 $(".close").on("click", (e) => {
     $(".header").css("display", "block");
     killAside();
     $(this).attr("aria-expanded", "false");
-});
-
-$(window).on("load", function (event) {
-  $("body").removeClass("preloading");
-  $(".loaderbox").delay(1000).fadeOut("slow");
 });
