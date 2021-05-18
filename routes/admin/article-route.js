@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-const articleController = require('../controllers/article-controller');
+const articleController = require('../../controllers/admin/article-controller');
 
 
 //lay danh sach bai viet

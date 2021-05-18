@@ -1,5 +1,5 @@
-const article = require('../models/article');
-const category = require('../models/category');
+const article = require('../../models/article');
+const category = require('../../models/category');
 const mongoose = require('mongoose');
 
 

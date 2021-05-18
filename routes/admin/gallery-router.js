@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-const galleryController = require("../controllers/gallery-controller");
+const galleryController = require("../../controllers/admin/gallery-controller");
 
 route.get('/', galleryController.getlist);
 

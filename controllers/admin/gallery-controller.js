@@ -1,5 +1,5 @@
-const Gallery = require('../models/gallery.js');
-const Category = require('../models/category.js');
+const Gallery = require('../../models/gallery.js');
+const Category = require('../../models/category.js');
 const mongoose = require('mongoose');
 
 exports.getlist = function (req,res) {

@@ -11,10 +11,10 @@ const sessionStore = new session.MemoryStore;
 const { flash } = require('express-flash-message');
 
 
-const categoryRoute = require('./routes/category_route');
-const galleryRoute = require('./routes/gallery-router');
-const articleRoute = require('./routes/article-route');
-const usergalleryRoute = require('./routes/user-gallery-router')
+const categoryRoute = require('./routes/admin/category_route');
+const galleryRoute = require('./routes/admin/gallery-router');
+const articleRoute = require('./routes/admin/article-route');
+const usergalleryRoute = require('./routes/user/user-gallery-router')
 
 //set date time format
 app.use((req, res, next)=>{

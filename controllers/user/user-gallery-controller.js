@@ -1,4 +1,4 @@
-const Gallery = require('../models/gallery.js');
+const Gallery = require('../../models/gallery.js');
 
 exports.getlist_gallery = function (req,res) {
     Gallery.find().then( async function (data) {
