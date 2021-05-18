@@ -5,7 +5,6 @@ var	$parent = $("#main"),
     $tilesParent = $(".tiles-a"),
     $tiles = $tilesParent.find("a"),
     slideClass = "show-detail";
-
 // tile click
 $tiles.on("click", function(e){
     e.preventDefault();
@@ -17,12 +16,6 @@ $tiles.on("click", function(e){
         killAside();
         $(this).attr("aria-expanded", "false");
     }
-});
-
-// kill aside
-$asideClose.on("click", function(e){
-    e.preventDefault();
-    killAside();
 });
 
 // load data to aside
@@ -39,6 +32,7 @@ function showAside(){
         $("html").toggleClass(slideClass);
         $aside.attr("aria-hidden","false");
         focusCloseButton();
+        $(".header").css("display", "none");
     }
 }
 
@@ -59,6 +53,7 @@ function killAside(){
         sendFocusBack();
         $aside.attr("aria-hidden","true");
         $tiles.attr("aria-expanded","false");
+        $(".header").css("display", "block");
     }
 }
 // send focus to close button
@@ -77,12 +72,6 @@ $parent.on("click",function(e){
     }
 });
 
-$('a').on("click", (e) => {
-    $(".header").css("display", "none");
-});
-
 $(".close").on("click", (e) => {
-    $(".header").css("display", "block");
     killAside();
-    $(this).attr("aria-expanded", "false");
 });
