@@ -18,6 +18,7 @@ route.post('/admin/article/delete',articleController.doDelete);
 //sua bai viet
 route.get('/admin/article/edit', articleController.edit);
 route.post('/admin/article/edit',articleController.update);
+
 //lay thong tin chi tiet bai viet
 route.get('/admin/article/detail', articleController.getDetail);
 //----------------------User Part--------------------------

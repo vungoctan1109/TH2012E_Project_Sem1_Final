@@ -38,10 +38,21 @@
 
                                     <div class="row">
                                         <div class="mb-3 col-md-10">
+                                            <label class="form-label" for="inputEmail4">Photos</label>
                                             <div id="preview-img" class="mb-3">
-                                                <img src="<%= item.thumbnail%>" style="width: 150px">
+                                                <%
+                                                var arrayImage = item.thumbnail.split(',');
+                                                %>
+                                                    <% if (arrayImage.length > 0){
+                                                    for (var j = 0; j < arrayImage.length; j++) {
+                                                        if(arrayImage[j].length === 0){ continue;}
+                                                    %>
+                                                    <img src="<%=arrayImage[j]%>" style="width:100px" class="img-thumbnail" alt="">
+                                                    <%
+                                                    }
+                                                    }%>
                                             </div>
-                                            <input value="<%=item.thumbnail%>" type="hidden" class="form-control" placeholder="Nhập link ảnh" name="thumbnail">
+                                            <input value="<%=item.thumbnail%>" type="hidden" class="form-control" placeholder="Enter photo link" name="thumbnail">
                                             <button type="button" id="upload_widget" class="btn btn-info mt-2">Upload files</button>
                                         </div>
                                     </div>
@@ -55,7 +66,9 @@
                                     <div class="row">
                                         <div class="mb-3 col-md-5">
                                             <button type="submit" class="btn btn-primary">Save</button>
-                                            <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                                            <a href="/admin/gallery">
+                                                <button type="button" class="btn btn-dark float-right">Back to list</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </form>
