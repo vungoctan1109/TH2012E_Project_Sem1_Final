@@ -19,7 +19,7 @@ exports.getList = function (req, res) {
         }
     }
 
-    article.find(fillterObject).populate('category').sort({createAt: 'desc'}).exec(async function (err, data) {
+    article.find(fillterObject).sort({ createAt : "desc"}).populate('category').exec(async function (err, data) {
         var cate = await category.find();
         res.render('admin/article/list', {
             message: await req.consumeFlash('message'),
@@ -99,49 +99,5 @@ exports.getDetail = function (req, res) {
         res.render('admin/article/detail', {
             item: data
         });
-    })
-}
-//----------------------User Part-----------------------------
-exports.getList_Aticles = function (req, res) {
-    var curentCategoryID = req.query.categoryID;
-    article.find({}).populate('category').sort({createAt: 'desc'}).exec(async function (err, data) {
-        res.render('user/article-userdisplay/articles_list', {
-            list: data,
-            curentCategoryID:curentCategoryID
-        });
-    })
-}
-
-//xem bai viet chi tiet - cai nay dung cho tat ca
-exports.article_detail = function (req, res) {
-    article.findById(req.query.id).populate('category').exec(async function (err,data){
-        res.render('user/article-userdisplay/articles_detail', {
-            item: data
-        });
-    })
-}
-//lay thong tin tat cac bai viet cho User Blog
-exports.getListBlog = function (req, res) {
-    var keyword = req.query.keyword;
-    var categoryId = req.query.categoryId;
-    var fillterObject = {};
-    //fillter theo categoryID
-    // if (typeof categoryId !== "undefined" && categoryId.length > 0) {
-    //     fillterObject["category"] = mongoose.Types.ObjectId(categoryId);
-    // }
-    //fillter theo keyword
-    if (typeof keyword !== "undefined" && keyword.length > 0) {
-        fillterObject["$text"] = {
-            $search: keyword
-        }
-    }
-
-    article.find(fillterObject).sort({ createAt : "desc"}).populate('category').exec(async function (err, data) {
-        var cate = await category.find();
-        res.render('user/page/blog', {
-            list1: data,
-            cate: cate,
-            currentCategoryID: categoryId
-        })
     })
 }
