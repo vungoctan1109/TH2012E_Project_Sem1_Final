@@ -19,7 +19,7 @@ exports.getList = function (req, res) {
         }
     }
 
-    article.find(fillterObject).populate('category').exec(async function (err, data) {
+    article.find(fillterObject).sort({ createAt : "desc"}).populate('category').exec(async function (err, data) {
         var cate = await category.find();
         res.render('admin/article/list', {
             message: await req.consumeFlash('message'),
