@@ -14,23 +14,46 @@
             font-family: 'Montserrat Alternates', sans-serif;
         }
 
+        .a-link {
+            color: #2222a2;
+            font-size: 18px;
+            text-decoration: underline
+        }
+        .i-icon{
+            color: #2222a2;
+            font-size: 18px;
+            margin-right: 9px;
+            margin-top: 3px;
+        }
+        .h2-01{
+            font-style: italic;
+            font-family: "Poppins", sans-serif
+            color: #8c0615;
+        }
+
     </style>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0"
+            nonce="usB5JJXB"></script>
 </head>
 <body>
 <%- include('../partial/sidebar.ejs') %>
 <%- include('../partial/loader.ejs') %>
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 <main>
-    <section class="container">
+    <section class="container-xl">
         <div class="row">
             <!-- Blog entries -->
             <!-- Blog entry -->
-            <div class="w3-card-4 w3-padding col" style="background: white">
+            <div class="w3-card-4 w3-padding col-lg-12" style="background: white">
                 <div class="w3-container">
                     <div class="row">
                         <div class="post-detail"><!-- Nội dung blog -->
                             <div>
                                 <h1><%= item.name %></h1>
+                                <div class="mt-3 mb-3">
+                                    <div class="rw-ui-container mt-2 mb-3"></div>
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h3 class="text-left"><%= moment(item.createAt).format('DD MMMM YYYY') %></h3>
@@ -50,13 +73,59 @@
                     </div>
                 </div>
             </div>
+            <div class="ml-5 mt-5">
+                <h2 class="h2-01">Newest Articles</h2>
+                <% for(var i = 0; i < 6; i++) {
+                %>
+                    <div class="row mb-4 mt-4">
+                        <i class="fa fa-external-link i-icon" aria-hidden="true"></i>
+
+                        <a class="a-link" href="/article/detail?id=<%= list[i]._id %>"><%= list[i].name %></a>
+                    </div>
+                <%
+                } %>
+            </div>
         </div>
         <br>
         </div>
+        <div class="fb-comments" data-href="http://localhost:3000/article/detail?id=<%= item._id %>"
+             data-width="800" data-numposts="3" data-order-by="reverse_time"></div>
     </section>
 </main>
 <%- include('../partial/footer.ejs') %>
 <%- include('../partial/js.ejs') %>
 <script src="/js/home.js"></script>
+<script type="text/javascript">(function (d, t, e, m) {
+
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+
+            RW.init({
+                huid: "475972",
+                uid: "4a8ae4d9e652f3f8f30d9f9a135f446f",
+                source: "website",
+                options: {
+                    "size": "medium",
+                    "type": "nero",
+                    "style": "thumbs2",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id;
+        rw.async = true;
+        rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
 </body>
 </html>

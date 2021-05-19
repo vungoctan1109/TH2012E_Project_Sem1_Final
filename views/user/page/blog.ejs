@@ -23,6 +23,9 @@
             background-position: 50% 50%;
         }
     </style>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0"
+            nonce="j0FKofGa"></script>
 </head>
 <body>
 
@@ -57,20 +60,20 @@
             <!-- item -->
             <% for(var i = 0; i < list1.length; i++) {
             %>
-            <div class="design-item">
-                <div class="design-img img-responsive">
-                    <img class="img-responsive" src="<%=list1[i].thumnail%>" alt="">
-                    <span><i class="far fa-heart"></i> 22</span>
-                    <span><%= moment(list1[i].createAt).format('DD MMMM YYYY') %></span>
-                </div>
-                <div class="blog-text">
-                    <h2><%=list1[i].name%></h2>
-                    <div class="article-description">
-                        <p><%=list1[i].articleDescription%></p>
+                <div class="design-item">
+                    <div class="design-img img-responsive">
+                        <img class="img-responsive" src="<%= list1[i].thumnail %>" alt="">
+                        <span><i class="far fa-heart"></i> 22</span>
+                        <span><%= moment(list1[i].createAt).format('DD MMMM YYYY') %></span>
                     </div>
+                    <div class="blog-text">
+                        <h2><%= list1[i].name %></h2>
+                        <div class="article-description">
+                            <p><%= list1[i].articleDescription %></p>
+                        </div>
+                    </div>
+                    <a href="/article/detail?id=<%= list1[i]._id %>">Read More</a>
                 </div>
-                <a href="/article/detail?id=<%= list1[i]._id %>">Read More</a>
-            </div>
             <%
             } %>
         </div>
@@ -228,6 +231,8 @@
                     velit sed laudantium eaque necessitatibus maxime!</p>
             </div>
         </div>
+        <div class="fb-comments" data-href="http://localhost:3000/blog" data-width="1000" data-numposts="3"
+             data-order-by="reverse_time"></div>
     </div>
 </section>
 
