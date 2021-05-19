@@ -1,13 +1,24 @@
-const Gallery = require('../models/gallery.js');
-const Category = require('../models/category.js');
+const Gallery = require('../../models/gallery.js');
+const Category = require('../../models/category.js');
 const mongoose = require('mongoose');
+require('mongoose-pagination');
 
 exports.getlist = function (req,res) {
-    Gallery.find().then( async function (data) {
+    var page = parseInt(req.query.page);
+    var limit = 5;
+    Gallery.find()
+        .paginate(
+            page,
+            limit,
+            async function (err, data, totalItem) {
         //render view kèm theo dữ liệu
         res.render('admin/gallery/list', {
             list: data,
             message: await req.consumeFlash('message'),// lấy message từ trong flash
+            totalItem: totalItem,
+            totalPage: Math.ceil(totalItem/limit),
+            page: page,
+            limit: limit
         });
     });
 }

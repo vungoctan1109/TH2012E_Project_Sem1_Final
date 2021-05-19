@@ -11,10 +11,13 @@ const sessionStore = new session.MemoryStore;
 const { flash } = require('express-flash-message');
 
 
-const categoryRoute = require('./routes/category_route');
-const galleryRoute = require('./routes/gallery-router');
-const articleRoute = require('./routes/article-route');
-const usergalleryRoute = require('./routes/user-gallery-router')
+const categoryRoute = require('./routes/admin/category_route');
+const galleryRoute = require('./routes/admin/gallery-router');
+const articleRoute = require('./routes/admin/article-route');
+const usergalleryRoute = require('./routes/user/gallery-route')
+const articleListRoute = require('./routes/user/articleList-route')
+const articleDetailRoute = require('./routes/user/articleDetail-route')
+const blogRoute = require('./routes/user/blog-route')
 
 //set date time format
 app.use((req, res, next)=>{
@@ -53,6 +56,9 @@ app.use ((req, res, next) => {
 app.use('/admin/categories', categoryRoute);
 app.use('/admin/gallery', galleryRoute);
 app.use('/', articleRoute);
+app.use('/article', articleListRoute);
+app.use('/article', articleDetailRoute);
+app.use('/', blogRoute);
 
 //mongoose
 //login connection into mongodb
