@@ -106,6 +106,64 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                <div class="pagination row" style="display: flex;align-items: center">
+                    <p class="col-lg-3">Showing <%= (page - 1) * limit + 1 %> to <%= (page - 1) * limit + limit %>
+                        of <%= totalItem %> photos</p>
+                    <nav aria-label="Page navigation example" class="col-lg-9">
+                        <ul class="pagination pagination-md ml-7">
+                            <%
+                                if (page > 1) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=<%=page - 1%>">Previous</a></li>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (page > 2) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="?page=<%=page - 2%>"><%= page - 2 %></a></li>
+                            <%
+                                }
+                            %>
+                            <%
+                                if (page > 1) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="?page=<%=page - 1%>"><%= page - 1 %></a></li>
+                            <%
+                                }
+                            %>
+
+                            <li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+
+                            <%
+                                if (page + 1 <= totalPage) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="?page=<%=page + 1%>"><%= page + 1 %></a></li>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (page + 2 <= totalPage) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="?page=<%=page + 2%>"><%= page + 2 %></a></li>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (page < totalPage) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="?page=<%=page + 1%>">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=<%=totalPage%>">Last</a></li>
+                            <%
+                                }
+                            %>
+                        </ul>
+                    </nav>
+                </div>
                 <!-- /.row -->
             </div>
         </main>
