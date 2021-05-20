@@ -46,12 +46,12 @@
                                 <div class="mt-4">
                                     <div class="row">
                                         <div class="col-lg-5 img-responsive ">
-                                            <a href="/article/detail?id=<%= list[i]._id %>"><img
+                                            <a href="/article/detail?id=<%= list[i]._id %>&categoryID=<%= list[i].category._id%>"><img
                                                         class="img-responsive"
                                                         src="<%= list[i].thumnail %>" alt=""></a>
                                         </div>
                                         <div class="col-lg-7">
-                                            <a href="/article/detail?id=<%= list[i]._id %>">
+                                            <a href="/article/detail?id=<%= list[i]._id %>&categoryID=<%= list[i].category._id%>">
                                                 <h2><%= list[i].name %></h2></a>
                                             <p class="mb-2"
                                                style="font-style: italic"><%= moment(list[i].createAt).format('DD MMMM YYYY') %></p>
@@ -60,7 +60,7 @@
                                                 <p><%- list[i].articleDetail %></p>
                                             </div>
                                             <div class="read_more">
-                                                <a href="/article/detail?id=<%= list[i]._id %>">Read More...</a>
+                                                <a href="/article/detail?id=<%= list[i]._id %>&categoryID=<%= list[i].category._id%>">Read More...</a>
                                             </div>
                                         </div>
                                     </div>

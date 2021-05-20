@@ -4,11 +4,16 @@ const mongoose = require('mongoose');
 
 
 exports.article_detail = function (req, res) {
-    article.findById(req.query.id).populate('category').exec(async function (err,data){
-        var list = await article.find().sort({ createAt : "desc"});
-        res.render('user/article-userdisplay/articles_detail', {
-            item: data,
-            list:list
-        });
+    var categoryID = req.query.categoryID;
+    article.findById(req.query.id).populate('category').exec(async function (err, data) {
+        article.find({'category': categoryID})
+            .sort({createAt: "desc"})
+            .populate('category')
+            .exec(async function (err, list) {
+                res.render('user/article-userdisplay/articles_detail', {
+                    item: data,
+                    list: list
+                });
+            });
     })
 }
