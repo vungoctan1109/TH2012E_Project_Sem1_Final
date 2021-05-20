@@ -67,16 +67,18 @@ exports.getCreate = function (req,res) {
     res.render('admin/gallery/form')
 }
 
-exports.postCreate = function (req,res) {
-    const product01 = new Gallery (req.body);
-    product01.save().then(function () {
-        res.redirect('/admin/gallery')
-    })
-}
+// exports.postCreate = function (req,res) {
+//     const newGallery = new Gallery (req.body);
+//     newGallery.save().then(function () {
+//         res.redirect('/admin/gallery')
+//     })
+// }
 
 exports.postCreate = function (req, resp){
     const obj = new Gallery(req.body);
     const error = obj.validateSync(); // validate dữ liệu được gửi lên từ form.
+    obj.createAt = Date.now();
+    obj.updateAt = Date.now();
     if(error && error.errors){ // trong trường hợp có lỗi
         // thì trả về form kèm thông tin lỗi và thông tin dữ liệu vừa được gửi lên.
         resp.render('admin/gallery/form', {
@@ -90,14 +92,4 @@ exports.postCreate = function (req, resp){
             resp.redirect('/admin/gallery'); // chuyển hướng người dùng về trang danh sách.
         })
     }
-}
-
-// lấy dữ liệu từ database hiển thị ra trang người dùng.
-exports.getlist_gallery = function (req,res) {
-    Gallery.find().then( async function (data) {
-        //render view kèm theo dữ liệu
-        res.render('user/page/gallery', {
-            list: data
-        });
-    });
 }
