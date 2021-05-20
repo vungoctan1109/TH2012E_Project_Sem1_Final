@@ -72,7 +72,7 @@
                             <p><%= list1[i].articleDescription %></p>
                         </div>
                     </div>
-                    <a href="/article/detail?id=<%= list1[i]._id %>">Read More</a>
+                    <a href="/article/detail?id=<%= list1[i]._id %>&categoryID=<%= list1[i].category._id%>">Read More</a>
                 </div>
             <%
             } %>
