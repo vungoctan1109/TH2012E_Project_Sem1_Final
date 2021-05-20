@@ -22,7 +22,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <form action="/admin/gallery/create" name="galleryForm" method="post">
-
+                                    <div style="display: none">
+                                        <input type="text" value="<%=Date.now()%>" name="createAt">
+                                    </div>
                                     <div class="row">
                                         <div class="mb-3 col-md-5">
                                             <label class="form-label" for="inputEmail4">Title</label>

@@ -14,7 +14,13 @@ const gallerySchema = new mongoose.Schema({
         required: [true, 'Please enter a description for the photo'],
         trim: true
     },
-    thumbnail: String
+    thumbnail: String,
+    createAt: {
+        type: Date
+    },
+    updateAt: {
+        type: Date
+    }
 });
 
 gallerySchema.index({name: 'text', description: 'text'});
