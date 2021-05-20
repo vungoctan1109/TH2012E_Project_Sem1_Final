@@ -23,6 +23,7 @@ exports.getList = function (req, res) {
 
     article.find(fillterObject)
         .populate('category')
+        .sort({ createAt : "desc"})
         .paginate(
             page,
             limit,

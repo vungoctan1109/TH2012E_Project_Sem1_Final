@@ -74,13 +74,21 @@
                 </div>
             </div>
             <div class="ml-5 mt-5">
-                <h2 class="h2-01">Newest Articles</h2>
-                <% for(var i = 0; i < 6; i++) {
+                <h2 class="h2-01">Related Articles For "<%=item.category.name%>"</h2>
+                <%
+                var lisLength =0;
+                if (list.length <5){
+                    lisLength =list.length;
+                }else {
+                    lisLength=5
+                }
+                %>
+                <% for(var i = 0; i < lisLength; i++) {
                 %>
                     <div class="row mb-4 mt-4">
                         <i class="fa fa-external-link i-icon" aria-hidden="true"></i>
 
-                        <a class="a-link" href="/article/detail?id=<%= list[i]._id %>"><%= list[i].name %></a>
+                        <a class="a-link" href="/article/detail?id=<%= list[i]._id %>&categoryID=<%= list[i].category._id%>"><%= list[i].name %></a>
                     </div>
                 <%
                 } %>
@@ -105,7 +113,14 @@
                 uid: "4a8ae4d9e652f3f8f30d9f9a135f446f",
                 source: "website",
                 options: {
-                    "size": "medium",
+                    "advanced": {
+                        "font": {
+                            "size": "20px",
+                            "bold": true,
+                            "type": "\"Comic Sans MS\""
+                        }
+                    },
+                    "size": "large",
                     "type": "nero",
                     "style": "thumbs2",
                     "isDummy": false

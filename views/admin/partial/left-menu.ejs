@@ -26,7 +26,7 @@
                     <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Manage Article</span>
                 </a>
                 <ul id="forms_2" class="sidebar-dropdown list-unstyled <%=url.includes('/admin/article') ? ' ' : ' collapse'%>" data-parent="#sidebar">
-                    <li class="sidebar-item <%=(url =='/admin/article') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/article?page=1">List Article</a></li>
+                    <li class="sidebar-item <%=url.includes('/admin/article?page') ? ' active ' : ' '%>"><a class="sidebar-link" href="/admin/article?page=1">List Article</a></li>
                     <li class="sidebar-item <%=(url =='/admin/article/create') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/article/create">Create New Article</a></li>
                 </ul>
             </li>
@@ -35,7 +35,7 @@
                     <i class="align-middle" data-feather="image"></i> <span class="align-middle">Manage Gallery</span>
                 </a>
                 <ul id="forms_3" class="sidebar-dropdown list-unstyled <%=url.includes('/admin/gallery') ? ' ' : ' collapse'%>" data-parent="#sidebar">
-                    <li class="sidebar-item <%=(url =='/admin/gallery') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/gallery?page=1">List Photo</a></li>
+                    <li class="sidebar-item <%=url.includes('/admin/gallery?page') ? ' active ' : ' '%>"><a class="sidebar-link" href="/admin/gallery?page=1">List Photo</a></li>
                     <li class="sidebar-item <%=(url =='/admin/gallery/create') ? ' active' : ''%>"><a class="sidebar-link" href="/admin/gallery/create">Add New Photo</a></li>
                 </ul>
             </li>
