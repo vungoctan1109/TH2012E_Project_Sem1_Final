@@ -93,9 +93,13 @@ app.use('/gallery',usergalleryRoute);
 app.get("/about", (req, res) => {
   res.render("user/page/about_us.ejs");
 });
-// about
+// blog
 app.get("/blog", (req, res) => {
   res.render("user/page/blog.ejs");
+});
+// faq
+app.get("/faq", (req, res) => {
+  res.render("user/page/faq.ejs");
 });
 //sigup_login
 app.get("/login", (req, res) => {
