@@ -2,27 +2,6 @@
 <head>
     <title>Calligraphy Blog</title>
     <link rel="stylesheet" href="/css/blog.css">
-    <style>
-        .blog-img .img-responsive {
-            width: 100%;
-            height: 500px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            object-fit: cover;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-        }
-
-        .blog-img .title-responsive {
-            width: 100%;
-            height: 500px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            object-fit: cover;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-        }
-    </style>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0"
             nonce="j0FKofGa"></script>
@@ -39,8 +18,10 @@
                 <span>Calligraphy.</span>Blog
             </h1>
             <p>everything that you want to know about Calligraphy</p>
-            <form>
-                <input type="search" name="keyword" class="search-input" placeholder="find your news callygraphy . . .">
+            <form name="searchForm" action="/blog" method="get">
+                <input type="search" name="keyword" class="search-input" placeholder="find your news callygraphy . . ." value="<%=currentKeyword%>">
+                <input class="form-control" type="hidden" name="page" value="<%=page%>">
+                <input class="form-control" type="hidden" name="limit" value="<%=limit%>">
                 <button type="submit" class="search-btn">
                     <i class="fas fa-search"></i>
                 </button>
@@ -82,8 +63,8 @@
                 <%
                 if (page > 1) {
                 %>
-                    <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-                    <li class="page-item"><a class="page-link" href="?page=<%= page - 1 %>">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="1">First</a></li>
+                <li class="page-item"><a class="page-link" href="<%=parseInt(page) - 1%>">Previous</a></li>
                 <%
                 }
                 %>
@@ -91,14 +72,14 @@
                 <%
                 if (page > 2) {
                 %>
-                    <li class="page-item"><a class="page-link" href="?page=<%= page - 2 %>"><%= page - 2 %></a></li>
+                <li class="page-item"><a class="page-link" href="<%=parseInt(page) - 2%>"><%=page - 2%></a></li>
                 <%
                 }
                 %>
                 <%
                 if (page > 1) {
                 %>
-                    <li class="page-item"><a class="page-link" href="?page=<%= page - 1 %>"><%= page - 1 %></a></li>
+                <li class="page-item"><a class="page-link" href="<%=parseInt(page) - 1%>"><%=page - 1%></a></li>
                 <%
                 }
                 %>
@@ -108,7 +89,7 @@
                 <%
                 if (page + 1 <= totalPage) {
                 %>
-                    <li class="page-item"><a class="page-link" href="?page=<%= page + 1 %>"><%= page + 1 %></a></li>
+                <li class="page-item"><a class="page-link" href="<%=parseInt(page) + 1%>"><%= page + 1 %></a></li>
                 <%
                 }
                 %>
@@ -116,7 +97,7 @@
                 <%
                 if (page + 2 <= totalPage) {
                 %>
-                    <li class="page-item"><a class="page-link" href="?page=<%= page + 2 %>"><%= page + 2 %></a></li>
+                <li class="page-item"><a class="page-link" href="<%=parseInt(page) + 2%>"><%= page + 2 %></a></li>
                 <%
                 }
                 %>
@@ -124,8 +105,8 @@
                 <%
                 if (page < totalPage) {
                 %>
-                    <li class="page-item"><a class="page-link" href="?page=<%= page + 1 %>">Next</a></li>
-                    <li class="page-item"><a class="page-link" href="?page=<%= totalPage %>">Last</a></li>
+                <li class="page-item"><a class="page-link" href="<%=parseInt(page) + 2%>">Next</a></li>
+                <li class="page-item"><a class="page-link" href="<%=totalPage%>">Last</a></li>
                 <%
                 }
                 %>
@@ -295,7 +276,13 @@
 <%- include('../partial/footer.ejs') %>
 <%- include('../partial/js.ejs') %>
 <script src="/js/blog.js"></script>
-
+<script>
+    $('.page-link').click(function (e) {
+        e.preventDefault();
+        document.forms['searchForm']['page'].value = $(this).attr('href');
+        document.forms['searchForm'].submit();
+    });
+</script>
 </body>
 
 </html>

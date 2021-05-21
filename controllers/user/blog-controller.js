@@ -36,7 +36,8 @@ exports.getListBlog = function (req, res) {
             totalItem: totalItem,
             totalPage: Math.ceil(totalItem/limit),
             page: page,
-            limit: limit
+            limit: limit,
+            currentKeyword: keyword
         })
     })
 }

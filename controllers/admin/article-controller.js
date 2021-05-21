@@ -31,6 +31,7 @@ exports.getList = function (req, res) {
         var cate = await category.find();
         res.render('admin/article/list', {
             message: await req.consumeFlash('message'),
+            currentKeyword: keyword,
             list1: data,
             cate: cate,
             currentCategoryID: categoryId,
