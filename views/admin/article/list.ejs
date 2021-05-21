@@ -3,7 +3,6 @@
 <head>
     <style>
         tr {
-
         }
     </style>
 </head>
@@ -26,8 +25,8 @@
                 <%
                 }
                 %>
-                <h1 class="section-title">LIST OF ARTILES</h1>
-                <form action="/admin/article" method="get" name="seachForm">
+                <h1 class="section-title">LIST OF ARTICLES</h1>
+                <form action="/admin/article" method="get" name="searchForm">
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <label class="mb-2" for="inputEmail4">Categories</label>
@@ -43,10 +42,10 @@
                         </div>
                         <div class="col-md-4">
                             <label class="mb-2" for="example1_filter">Search</label>
-                            <div id="example1_filter" class="dataTables_filter"><input class="form-control"
-                                                                                       type="search"
-                                                                                       aria-controls="example1"
-                                                                                       name="keyword">
+                            <div id="example1_filter" class="dataTables_filter">
+                                <input class="form-control" type="search" aria-controls="example1" name="keyword" value="<%=currentKeyword%>">
+                                <input class="form-control" type="hidden" name="page" value="<%=page%>">
+                                <input class="form-control" type="hidden" name="limit" value="<%=limit%>">
                             </div>
                         </div>
                     </div>
@@ -143,54 +142,54 @@
                     <nav aria-label="Page navigation example" class="col-lg-9">
                         <ul class="pagination pagination-md ml-7">
                             <%
-                                if (page > 1) {
+                            if (page > 1) {
                             %>
-                                <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-                                <li class="page-item"><a class="page-link" href="?page=<%=page - 1%>">Previous</a></li>
-                            <%
-                                }
-                            %>
-
-                            <%
-                                if (page > 2) {
-                            %>
-                                <li class="page-item"><a class="page-link" href="?page=<%=page - 2%>"><%= page - 2 %></a></li>
-                            <%
-                                }
-                            %>
-                            <%
-                                if (page > 1) {
-                            %>
-                                <li class="page-item"><a class="page-link" href="?page=<%=page - 1%>"><%= page - 1 %></a></li>
-                            <%
-                                }
-                            %>
-
-                            <li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
-
-                            <%
-                                if (page + 1 <= totalPage) {
-                            %>
-                                <li class="page-item"><a class="page-link" href="?page=<%=page + 1%>"><%= page + 1 %></a></li>
-                            <%
-                                }
-                            %>
-
-                            <%
-                                if (page + 2 <= totalPage) {
-                            %>
-                                <li class="page-item"><a class="page-link" href="?page=<%=page + 2%>"><%= page + 2 %></a></li>
+                            <li class="page-item"><a class="page-link" href="1">First</a></li>
+                            <li class="page-item"><a class="page-link" href="<%=parseInt(page) - 1%>">Previous</a></li>
                             <%
                             }
                             %>
 
                             <%
-                                if (page < totalPage) {
+                            if (page > 2) {
                             %>
-                                <li class="page-item"><a class="page-link" href="?page=<%=page + 1%>">Next</a></li>
-                                <li class="page-item"><a class="page-link" href="?page=<%=totalPage%>">Last</a></li>
+                            <li class="page-item"><a class="page-link" href="<%=parseInt(page) - 2%>"><%=page - 2%></a></li>
                             <%
-                                }
+                            }
+                            %>
+                            <%
+                            if (page > 1) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="<%=parseInt(page) - 1%>"><%=page - 1%></a></li>
+                            <%
+                            }
+                            %>
+
+                            <li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+
+                            <%
+                            if (page + 1 <= totalPage) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="<%=parseInt(page) + 1%>"><%= page + 1 %></a></li>
+                            <%
+                            }
+                            %>
+
+                            <%
+                            if (page + 2 <= totalPage) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="<%=parseInt(page) + 2%>"><%= page + 2 %></a></li>
+                            <%
+                            }
+                            %>
+
+                            <%
+                            if (page < totalPage) {
+                            %>
+                            <li class="page-item"><a class="page-link" href="<%=parseInt(page) + 2%>">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="<%=totalPage%>">Last</a></li>
+                            <%
+                            }
                             %>
                         </ul>
                     </nav>
@@ -204,10 +203,16 @@
 <!-- js -->
 <%- include('../partial/js.ejs') %>
 <script>
-    var categorySelect = document.forms['seachForm']['categoryId'];
+    var categorySelect = document.forms['searchForm']['categoryId'];
     categorySelect.onchange = function () {
-        document.forms['seachForm'].submit();
+        document.forms['searchForm'].submit();
     }
+
+    $('.page-link').click(function (e) {
+        e.preventDefault();
+        document.forms['searchForm']['page'].value = $(this).attr('href');
+        document.forms['searchForm'].submit();
+    });
 </script>
 </body>
 

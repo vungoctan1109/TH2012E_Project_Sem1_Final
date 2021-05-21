@@ -126,6 +126,13 @@ a:hover {
     background: #383b70;
 }
 
+.error {
+    color:red;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .contact-warp {
         padding: 100px 15px 60px 40px;

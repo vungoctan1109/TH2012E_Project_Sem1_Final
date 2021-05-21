@@ -402,6 +402,27 @@ img{
   padding: 15px;
   border-radius: 4px;
 }
+
+.blog-img .img-responsive {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.blog-img .title-responsive {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
 #myBtn:active
 {
   background-color:  rgb(43, 43, 43);
