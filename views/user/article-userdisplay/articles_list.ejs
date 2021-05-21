@@ -57,7 +57,7 @@
                                                style="font-style: italic"><%= moment(list[i].createAt).format('DD MMMM YYYY') %></p>
                                             <p style="font-weight: bold;font-size: 19px" class="mb-0"><%= list[i].category.name %></p>
                                             <div class="article-summary mt-0">
-                                                <p><%- list[i].articleDetail %></p>
+                                                <p><%- list[i].articleDescription %></p>
                                             </div>
                                             <div class="read_more">
                                                 <a href="/article/detail?id=<%= list[i]._id %>&categoryID=<%= list[i].category._id%>">Read More...</a>
@@ -79,17 +79,17 @@
                 <!-- Posts -->
                 <div class="w3-card-3 w3-margin w3-padding" >
                     <div class="w3-container w3-padding">
-                        <h4>Popular Posts</h4>
+                        <h4>Latest Posts</h4>
                     </div>
                     <ul class="w3-ul w3-hoverable ">
                         <%
-                        for(var i = 2 ; i >= 0 ; i--) {
+                        for(var i = 0 ; i <3 ; i++) {
                         %>
                             <li class="w3-padding-16">
                                 <a href="/article/detail?id=<%= list[i]._id %>">
                                     <div style="position: relative">
                                         <img src="<%= list[i].thumnail %>" alt="Image" class="w3-left w3-margin-right"
-                                             style="width:65px">
+                                             style="width:65px;height: 50px">
                                     </div>
                                     <span class=""><b><%= list[i].name %></b></span><br>
                                     <span style="font-style: italic"><%= moment(list[i].createAt).format('DD MMMM YYYY') %></span>
