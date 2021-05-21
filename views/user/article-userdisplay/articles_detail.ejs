@@ -121,35 +121,27 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <div class="w3-container w3-white">
                     <h4><b>Recently viewed article</b></h4>
                     <div class="w3-ul w3-hoverable w3-white container">
-                        <% var showList = 0
-                        if (recentView.length < 6) {
-                            showList = recentView.length;
-                        } else {
-                            showList = 6;
-                        }
+                        <%var showList =0
                         %>
-                        <% for(var i = 0; i < showList; i++) {
+                        <% for(var i = 0; i < recentView.length; i++) {
                         %>
-                            <a href="/article/detail?id=<%= recentView[i]._id %>&categoryID=<%= recentView[i].category._id %>">
-                                <div class="row">
-                                    <div class="col-lg-10 pl-5">
-                                        <h3 style="font-size:  small"><%= recentView[i].name %></h3>
-                                    </div>
-                                    <div class="col-lg-2 justify-content-center">
-                                        <i style="font-size: larger; color: dimgray" class="fa fa-commenting "
-                                           aria-hidden="true"></i>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-10 pl-5">
+                                    <h3 style="font-size:  small"><%= recentView[i].name %></h3>
                                 </div>
-                            </a>
+                                <div class="col-lg-2 justify-content-center">
+                                    <i style="font-size: larger" class="fa fa-commenting " aria-hidden="true"></i>
+                                </div>
+                            </div>
                         <%
-                        } %>
+                        }%>
                     </div>
                 </div>
             </div>
             <hr>
 
             <!-- Posts -->
-            <div class="w3-container  w3-white w3-margin w3-margin-top">
+            <div class="w3-card w3-margin col-sticky">
                 <div class="w3-container w3-padding">
                     <h4 style="font-family: 'Raleway, sans-serif', sans-serif" class="text-left">Learn more
                         about <%= item.category.name %></h4>
@@ -194,14 +186,24 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <h4>Tags</h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom">Caligraphy For Beginer</span> <span
-                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Arabic</span> <span
-                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Greek</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Indic</span> <span
-                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">For Kids </span>
+                    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
                     </p>
                 </div>
             </div>
+
             <!-- END Introduction Menu -->
         </div>
 
