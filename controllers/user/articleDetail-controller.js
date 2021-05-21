@@ -10,9 +10,24 @@ exports.article_detail = function (req, res) {
             .sort({createAt: "desc"})
             .populate('category')
             .exec(async function (err, list) {
+                var array = [];
+                if (req.session.recentView) {
+                    array = req.session.recentView;
+                }
+                var flag = false;
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i]._id == data._id){
+                        flag = true;
+                    }
+                }
+                if (!flag) {
+                    array.push(data);
+                }
+                req.session.recentView = array;
                 res.render('user/article-userdisplay/articles_detail', {
                     item: data,
-                    list: list
+                    list: list,
+                    recentView: array
                 });
             });
     })
