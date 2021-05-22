@@ -13,31 +13,6 @@
             font-size: large;
             font-family: 'Montserrat Alternates', sans-serif;
         }
-
-        .a-link {
-            color: #2222a2;
-            font-size: 18px;
-            text-decoration: underline
-        }
-
-        .i-icon {
-            color: #2222a2;
-            font-size: 18px;
-            margin-right: 9px;
-            margin-top: 3px;
-        }
-
-        .h2-01 {
-            font-style: italic;
-            font-family: "Poppins", sans-serif
-            color: #8c0615;
-        }
-
-        .center {
-            margin: auto;
-            padding: 10px;
-        }
-
     </style>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0"
@@ -74,19 +49,16 @@
         align-items: flex-end;
     }
 </style>
-<body class="w3-light-grey">
-
-<!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content, except for the footer in this example -->
+<body>
 <div class="w3-content" style="max-width:1400px">
     <!-- Grid -->
     <div class="w3-row">
-
         <!-- Blog entries -->
         <div class="w3-col l8 s12">
-            <!-- Blog entry -->
             <div class="w3-card-4 w3-margin w3-white">
-                <img src="<%= item.thumnail %>" alt="Nature" style="width:auto; height: 120px">
+                <img src="<%= item.thumnail %>"
+                     alt="Norway" style="width:100%;height: 300px;object-fit: cover;opacity:0.7">
+
                 <div class="w3-container">
                     <h3><b><%= item.name %></b></h3>
                     <h5><span
@@ -97,71 +69,29 @@ and is wrapped around the whole page content, except for the footer in this exam
                 </div>
 
                 <div class="w3-container">
-                    <p><%= item.articleDescription %></p>
-                </div>
-            </div>
-            <hr>
-
-            <!-- Blog entry -->
-            <div class="w3-card-4 w3-margin w3-white">
-                <img src="https://res.cloudinary.com/quynv300192/image/upload/c_fill,h_220,w_720/v1619878408/PROJECT%20KI%201/a3_wvxrcw.jpg"
-                     alt="Norway" style="width:100%">
-                <div class="w3-container">
                     <p><%- item.articleDetail %></p>
                 </div>
             </div>
+
             <!-- END BLOG ENTRIES -->
         </div>
 
-        <!-- Introduction menu -->
+        <!-- Recent Viewed Article -->
         <div class="w3-col l4">
-            <!-- About Card -->
-            <div class="w3-card w3-margin w3-margin-top">
-                <img src="../../../img/article_detail/bridge.jpg" style="width:100%">
-                <div class="w3-container w3-white">
-                    <h4><b>Recently viewed article</b></h4>
-                    <div class="w3-ul w3-hoverable w3-white container">
-                        <% var showList = 0
-                        if (recentView.length < 6) {
-                            showList = recentView.length;
-                        } else {
-                            showList = 6;
-                        }
-                        %>
-                        <% for(var i = 0; i < showList; i++) {
-                        %>
-                            <a href="/article/detail?id=<%= recentView[i]._id %>&categoryID=<%= recentView[i].category._id %>">
-                                <div class="row">
-                                    <div class="col-lg-10 pl-5">
-                                        <h3 style="font-size:  small"><%= recentView[i].name %></h3>
-                                    </div>
-                                    <div class="col-lg-2 justify-content-center">
-                                        <i style="font-size: larger; color: dimgray" class="fa fa-commenting "
-                                           aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        <%
-                        } %>
-                    </div>
-                </div>
-            </div>
-            <hr>
-
-            <!-- Posts -->
-            <div class="w3-container  w3-white w3-margin w3-margin-top">
+            <!-- article related -->
+            <div class="w3-card w3-margin">
+                <img src="https://res.cloudinary.com/quynv300192/image/upload/v1621622536/PROJECT%20KI%201/unnamed_glvtg4.jpg"
+                     style="width:100%; height: 130px; object-fit: cover">
                 <div class="w3-container w3-padding">
-                    <h4 style="font-family: 'Raleway, sans-serif', sans-serif" class="text-left">Learn more
-                        about <%= item.category.name %></h4>
-                    <p>Education is the most powerful weapon we use to change the world..</p>
+                    <h4><b>Learn more about Arabic Calligraphy</b></h4>
                 </div>
-                <div class="w3-ul w3-hoverable w3-white container">
+                <ul class="w3-ul w3-hoverable w3-white">
                     <%
                     var lisLength = 0;
-                    if (list.length < 5) {
+                    if (list.length < 3) {
                         lisLength = list.length;
                     } else {
-                        lisLength = 5
+                        lisLength = 3
                     }
                     %>
                     <% for(var i = 0; i < lisLength; i++) {
@@ -171,19 +101,44 @@ and is wrapped around the whole page content, except for the footer in this exam
                         }else {
                         %>
                             <a href="/article/detail?id=<%= list[i]._id %>&categoryID=<%= list[i].category._id %>">
-                                <div class="row">
-                                    <div class="col-lg-10 pl-5">
-                                        <h3 style="font-size:  small"><%= list[i].name %></h3>
-                                    </div>
-                                    <div class="col-lg-2 justify-content-center">
-                                        <i style="font-size: larger" class="fa fa-commenting " aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                                <li class="w3-padding-16" style="height: max-content">
+                                    <img src="<%= list[i].thumnail %>" alt="Image" class="w3-left w3-margin-right"
+                                         style="width:30px; height: 30px ;border-radius: 2px">
+                                    <span style="height: 50px; overflow: hidden"
+                                          class="w3-large"><%= list[i].name %></span><br>
+                                    <!--                                <span>Click here</span>-->
+                                </li>
                             </a>
                         <%
                         } %>
                     <%
                     } %>
+                </ul>
+            </div>
+            <hr>
+            <!-- About Card -->
+            <div class="w3-card w3-margin w3-margin-top">
+                <img src="https://res.cloudinary.com/quynv300192/image/upload/v1621622547/PROJECT%20KI%201/Screenshot_10_dodejr.jpg"
+                     style="width:100%; height: 130px; object-fit: cover">
+                <div class="w3-container w3-white">
+                    <h4><b>Recently viewed article</b></h4>
+                    <ul class="w3-ul w3-hoverable w3-white container">
+                        <% var showList = 0
+                        %>
+                        <% for(var i = 0; i < recentView.length; i++) {
+                        %>
+                            <a href="/article/detail?id=<%= recentView[i]._id %>&categoryID=<%= recentView[i].category._id %>">
+                                <li class="w3-padding-16" style="height: max-content">
+                                    <img src="<%= recentView[i].thumnail %>" alt="Image" class="w3-left w3-margin-right"
+                                         style="width:30px; height: 30px;border-radius: 2px">
+                                    <span style="height: 50px; overflow: hidden"
+                                          class="w3-large"><%= recentView[i].name %></span><br>
+                                    <!--                                <span>Click here</span>-->
+                                </li>
+                            </a>
+                        <%
+                        } %>
+                    </ul>
                 </div>
             </div>
             <hr>
@@ -194,14 +149,21 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <h4>Tags</h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom">Caligraphy For Beginer</span> <span
-                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Arabic</span> <span
-                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">Greek</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Indic</span> <span
-                                class="w3-tag w3-light-grey w3-small w3-margin-bottom">For Kids </span>
+                    <p>
+                        <a href="/article/list?categoryID=609ca925458f543f20288670"><span
+                                    class="w3-tag <%= item.category._id == '609ca925458f543f20288670' ? 'w3-black' : '' %>w3-light-grey w3-small w3-margin-bottom">Calligraphy Beginner</span></a>
+                        <a href="/article/list?categoryID=609b6bc7fe252e3808a76e09"><span
+                                    class="w3-tag <%= item.category._id == '609b6bc7fe252e3808a76e09' ? 'w3-black' : '' %>w3-light-grey w3-small w3-margin-bottom">Kids</span></a>
+                        <a href="/article/list?categoryID=609b6bd9fe252e3808a76e0a"><span
+                                    class="w3-tag <%= item.category._id == '609b6bd9fe252e3808a76e0a' ? 'w3-black' : '' %>w3-light-grey w3-small w3-margin-bottom">Arabic</span></a>
+                        <a href="/article/list?categoryID=609b81e8056c9e30b4d3d451"><span
+                                    class="w3-tag <%= item.category._id == '609b81e8056c9e30b4d3d451' ? 'w3-black' : '' %>w3-light-grey w3-small w3-margin-bottom">Greek</span></a>
+                        <a href="/article/list?categoryID=609b81d9056c9e30b4d3d450"><span
+                                    class="w3-tag <%= item.category._id == '609b81d9056c9e30b4d3d450' ? 'w3-black' : '' %>w3-light-grey w3-small w3-margin-bottom">Indic</span></a>
                     </p>
                 </div>
             </div>
+
             <!-- END Introduction Menu -->
         </div>
 
@@ -213,7 +175,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 </body>
 </html>
 
-<main>
+<main style="background-color: white">
     <section class="container-xl">
 
         <br>
