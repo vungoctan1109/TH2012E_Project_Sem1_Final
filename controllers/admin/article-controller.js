@@ -103,7 +103,7 @@ exports.edit = function (req, res) {
 
 exports.update = function (req, res) {
     article.findByIdAndUpdate(req.query.id, req.body).then(function (data) {
-        res.redirect('/admin/article');
+        res.redirect('/admin/article?categoryId=&keyword=&page=1&limit=5');
     })
 }
 //lay thong tin chi tiet bai viet
