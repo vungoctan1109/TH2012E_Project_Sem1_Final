@@ -10,7 +10,9 @@
         padding: 1em;
     }
 }
-
+main{
+  min-height: 100vh;
+}
 .fake-section {
     background: #eee;
     height: 300px;
