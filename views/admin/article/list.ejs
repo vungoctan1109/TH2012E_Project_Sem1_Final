@@ -27,7 +27,7 @@
                 %>
                 <h1 class="section-title">LIST OF ARTICLES</h1>
                 <form action="/admin/article" method="get" name="searchForm">
-                    <div class="row mb-3">
+                    <div class="row mb-3" style="justify-content: space-between;">
                         <div class="col-md-4">
                             <label class="mb-2" for="inputEmail4">Categories</label>
                             <!--                                            danh muc san pham duoc lay ra tu bang categories-->
@@ -40,10 +40,10 @@
                                 } %>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label class="mb-2" for="example1_filter">Search</label>
                             <div id="example1_filter" class="dataTables_filter">
-                                <input class="form-control" type="search" aria-controls="example1" name="keyword" value="<%=currentKeyword%>">
+                                <input class="form-control" type="search" aria-controls="example1" name="keyword" value="<%=currentKeyword%>" placeholder="Search...">
                                 <input class="form-control" type="hidden" name="page" value="<%=page%>">
                                 <input class="form-control" type="hidden" name="limit" value="<%=limit%>">
                             </div>
@@ -57,11 +57,11 @@
                             <th style="width: 1%" class="text-center">Number</th>
                             <th style="width: 12%" class="text-center">Title</th>
                             <th style="width: 4%" class="text-center">Author</th>
-                            <th style="width: 7%" class="text-center">Calligraphy Genre</th>
+                            <th style="width: 10%" class="text-center">Calligraphy Genre</th>
                             <th style="width: 12%" class="text-center">Article Thumbnail</th>
                             <th style="width: 12%" class="text-center">Create At</th>
                             <th style="width: 12%" class="text-center">Update At</th>
-                            <th style="width: 16%" class="text-center">Action</th>
+                            <th style="width: 13%" class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -126,11 +126,11 @@
                             <th style="width: 1%" class="text-center">Number</th>
                             <th style="width: 12%" class="text-center">Title</th>
                             <th style="width: 4%" class="text-center">Author</th>
-                            <th style="width: 7%" class="text-center">Calligraphy Genre</th>
+                            <th style="width: 10%" class="text-center">Calligraphy Genre</th>
                             <th style="width: 12%" class="text-center">Article Thumbnail</th>
                             <th style="width: 12%" class="text-center">Create At</th>
                             <th style="width: 12%" class="text-center">Update At</th>
-                            <th style="width: 16%" class="text-center">Action</th>
+                            <th style="width: 13%" class="text-center">Action</th>
 
                         </tr>
                         </tfoot>
