@@ -70,7 +70,7 @@ exports.store = function (req, res) {
     } else {
         newArticle.save().then(async function () {
             await req.flash('message', 'Your article creation is complete!');
-            res.redirect('/admin/article')
+            res.redirect('/admin/article?categoryId=&keyword=&page=1&limit=5')
         })
     }
 }

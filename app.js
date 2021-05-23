@@ -43,8 +43,8 @@ app.use(
 );
 app.use(flash({ sessionKeyName: 'flashMessage' }));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use ((req, res, next) => {
     res.locals.url = req.originalUrl;
