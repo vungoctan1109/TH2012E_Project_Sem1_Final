@@ -71,6 +71,7 @@ footer h3 {
     margin-right: auto;
     margin-left: auto;
     background-image: url(../img/home/footer/img.png);
+    justify-content: center;
 }
 .footer-about p a {
     color: #aaa;
